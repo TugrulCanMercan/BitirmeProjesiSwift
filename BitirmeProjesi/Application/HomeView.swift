@@ -40,14 +40,9 @@ struct Profile:View{
             .customNavigationBarColor(.yellow)
             
         }
-        
-        
-        
-        
+
     }
-    
-    
-    
+  
 }
 
 //@State private var selection: String = "home"

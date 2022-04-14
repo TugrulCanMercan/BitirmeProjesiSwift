@@ -28,6 +28,12 @@
 		DBD21F392800803C0071A193 /* TTLabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD21F382800803C0071A193 /* TTLabelledDivider.swift */; };
 		DBD21F3B280080E70071A193 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD21F3A280080E70071A193 /* SignUpView.swift */; };
 		DBD21F3D280081D90071A193 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD21F3C280081D90071A193 /* HomeView.swift */; };
+		E408863C2807750A00DEC93B /* UserInformationSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408863B2807750A00DEC93B /* UserInformationSectionView.swift */; };
+		E414F13F2806AD0A00C72D0C /* ProgressBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414F13E2806AD0A00C72D0C /* ProgressBarIcon.swift */; };
+		E414F1432806BAF400C72D0C /* PromotionSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E414F1422806BAF400C72D0C /* PromotionSectionView.swift */; };
+		E4DBAABA280171F9007F0CB4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DBAAB9280171F9007F0CB4 /* ProfileView.swift */; };
+		E4DBAABC280190A5007F0CB4 /* TTPromotionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DBAABB280190A5007F0CB4 /* TTPromotionBar.swift */; };
+		E4F6804628083CA900268BC9 /* NavBarRightItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F6804528083CA900268BC9 /* NavBarRightItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +59,13 @@
 		DBD21F382800803C0071A193 /* TTLabelledDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTLabelledDivider.swift; sourceTree = "<group>"; };
 		DBD21F3A280080E70071A193 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DBD21F3C280081D90071A193 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E408863B2807750A00DEC93B /* UserInformationSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationSectionView.swift; sourceTree = "<group>"; };
+		E414F13E2806AD0A00C72D0C /* ProgressBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarIcon.swift; sourceTree = "<group>"; };
+		E414F1422806BAF400C72D0C /* PromotionSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionSectionView.swift; sourceTree = "<group>"; };
+		E4DBAAB9280171F9007F0CB4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E4DBAABB280190A5007F0CB4 /* TTPromotionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPromotionBar.swift; sourceTree = "<group>"; };
+		E4F680422808173500268BC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E4F6804528083CA900268BC9 /* NavBarRightItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarRightItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +105,7 @@
 		DBD21F0228005AA00071A193 /* BitirmeProjesi */ = {
 			isa = PBXGroup;
 			children = (
+				E4F680422808173500268BC9 /* Info.plist */,
 				DBD21F1528005AFB0071A193 /* Sources */,
 				DBD21F1428005AEF0071A193 /* Services */,
 				DBD21F1328005AE60071A193 /* Application */,
@@ -130,6 +144,7 @@
 		DBD21F1328005AE60071A193 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E414F1402806BA9000C72D0C /* ProfileScene */,
 				DB051A7828008843005A90A9 /* Core View */,
 				DBD21F0528005AA00071A193 /* LoginVİew.swift */,
 				DBD21F3A280080E70071A193 /* SignUpView.swift */,
@@ -170,6 +185,7 @@
 				DBD21F1B280063740071A193 /* CustomNavLink.swift */,
 				DBD21F1E2800641A0071A193 /* CustomNavBarContent.swift */,
 				DBD21F202800650C0071A193 /* CustomNavBarPreference.swift */,
+				E4F6804528083CA900268BC9 /* NavBarRightItem.swift */,
 			);
 			path = CustomNavBar;
 			sourceTree = "<group>";
@@ -194,6 +210,8 @@
 				DBD21F31280072AD0071A193 /* TTSecureField.swift */,
 				DBD21F36280077990071A193 /* TTButton.swift */,
 				DBD21F382800803C0071A193 /* TTLabelledDivider.swift */,
+				E4DBAABB280190A5007F0CB4 /* TTPromotionBar.swift */,
+				E414F13E2806AD0A00C72D0C /* ProgressBarIcon.swift */,
 			);
 			path = SubComponents;
 			sourceTree = "<group>";
@@ -204,6 +222,40 @@
 				DBD21F342800775D0071A193 /* TTTextFieldModifier.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		E414F1402806BA9000C72D0C /* ProfileScene */ = {
+			isa = PBXGroup;
+			children = (
+				E4F680442808358E00268BC9 /* ViewModel */,
+				E4F680432808357F00268BC9 /* Views */,
+			);
+			path = ProfileScene;
+			sourceTree = "<group>";
+		};
+		E414F1412806BAB400C72D0C /* ProfilSections */ = {
+			isa = PBXGroup;
+			children = (
+				E414F1422806BAF400C72D0C /* PromotionSectionView.swift */,
+				E408863B2807750A00DEC93B /* UserInformationSectionView.swift */,
+			);
+			path = ProfilSections;
+			sourceTree = "<group>";
+		};
+		E4F680432808357F00268BC9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E414F1412806BAB400C72D0C /* ProfilSections */,
+				E4DBAAB9280171F9007F0CB4 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E4F680442808358E00268BC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,17 +329,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBD21F1828005F9A0071A193 /* CustomNavView.swift in Sources */,
+				E414F1432806BAF400C72D0C /* PromotionSectionView.swift in Sources */,
 				DBD21F29280067A40071A193 /* CustomTabBarView.swift in Sources */,
 				DBD21F0628005AA00071A193 /* LoginVİew.swift in Sources */,
 				DBD21F3028006CAF0071A193 /* TTTextField.swift in Sources */,
 				DBD21F2D280067EC0071A193 /* TabBarItemsPreferenceKey.swift in Sources */,
+				E4F6804628083CA900268BC9 /* NavBarRightItem.swift in Sources */,
+				E414F13F2806AD0A00C72D0C /* ProgressBarIcon.swift in Sources */,
 				DBD21F392800803C0071A193 /* TTLabelledDivider.swift in Sources */,
+				E408863C2807750A00DEC93B /* UserInformationSectionView.swift in Sources */,
 				DBD21F1F2800641A0071A193 /* CustomNavBarContent.swift in Sources */,
 				DBD21F3B280080E70071A193 /* SignUpView.swift in Sources */,
 				DBD21F352800775D0071A193 /* TTTextFieldModifier.swift in Sources */,
 				DBD21F2B280067C30071A193 /* TabBarItem.swift in Sources */,
 				DBD21F32280072AD0071A193 /* TTSecureField.swift in Sources */,
 				DBD21F1A28005FFE0071A193 /* CustomNavBarContainerView.swift in Sources */,
+				E4DBAABA280171F9007F0CB4 /* ProfileView.swift in Sources */,
+				E4DBAABC280190A5007F0CB4 /* TTPromotionBar.swift in Sources */,
 				DBD21F27280067810071A193 /* CustomTabBarContainerView.swift in Sources */,
 				DBD21F0428005AA00071A193 /* BitirmeProjesiApp.swift in Sources */,
 				DBD21F1C280063740071A193 /* CustomNavLink.swift in Sources */,
@@ -428,6 +486,8 @@
 				DEVELOPMENT_TEAM = J2USCCWW7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BitirmeProjesi/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "\"Touch Id İzin\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -457,6 +517,8 @@
 				DEVELOPMENT_TEAM = J2USCCWW7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BitirmeProjesi/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "\"Touch Id İzin\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

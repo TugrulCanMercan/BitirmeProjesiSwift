@@ -13,29 +13,41 @@ struct CustomNavBarContent: View {
     let showBackButton: Bool
     let title: String
     let subtitle: String?
-    @State var navBarColor : Color?
+    let navBarColor : Color?
     let showRightItem: Bool
     let rightAndLeftItemWidth:CGFloat = 30
     
     var body: some View {
         
         HStack {
-            if showBackButton {
-                backButton
-                    .frame(width:rightAndLeftItemWidth)
+            
+
+            Button {
+                
+            } label: {
+                
+                
+                ZStack{
+                    if (showBackButton){
+                        Text("dsada")
+                    }
+                }
+                .frame(width:rightAndLeftItemWidth)
             }
+
             Spacer()
             titleSection
                 .frame(maxWidth:.infinity)
             Spacer()
             Button {
-                navBarColor = .blue
+                
             } label: {
                 
                 
                 ZStack{
                     if (showRightItem){
                         
+
                     }
                 }
                 .frame(width:rightAndLeftItemWidth)
@@ -64,7 +76,7 @@ struct CustomNavBarContent: View {
 struct CustomNavBarContent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            CustomNavBarContent(showBackButton: true, title: "TItle here", subtitle: "Subtitle goes here", navBarColor: .red, showRightItem: true)
+            CustomNavBarContent(showBackButton: false, title: "TItle here", subtitle: "Subtitle goes here", navBarColor: .blue, showRightItem: false)
             Spacer()
         }
     }

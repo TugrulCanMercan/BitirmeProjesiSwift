@@ -10,17 +10,18 @@ import SwiftUI
 struct CustomNavBarContainerView<Content: View>: View {
     
     let content: Content
+    @State private var showRightItem: Bool = true
     @State private var showBackButton: Bool = true
     @State private var title: String = ""
     @State private var subtitle: String? = nil
-    @State private var color: Color? = nil
+    @State private var color: Color = .red
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
     
     var body: some View {
         VStack(spacing: 0) {
-            CustomNavBarContent(showBackButton: showBackButton, title: title, subtitle: subtitle, navBarColor: color, showRightItem: false)
+            CustomNavBarContent(showBackButton: showBackButton, title: title, subtitle: subtitle, navBarColor: color, showRightItem: showRightItem)
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
@@ -33,9 +34,12 @@ struct CustomNavBarContainerView<Content: View>: View {
         .onPreferenceChange(CustomNavBarBackButtonHiddenPreferenceKey.self, perform: { value in
             self.showBackButton = !value
         })
-        .onPreferenceChange(customNavigationBarColorPreferenceKey.self, perform: { value in
+        .onPreferenceChange(CustomNavigationBarColorPreferenceKey.self, perform: { value in
             self.color = value
         })
+        .onPreferenceChange(CustomNavigationBarRightItemPreferenceKey.self) { value in
+            self.showRightItem = value
+        }
     }
 }
 
@@ -47,6 +51,7 @@ struct CustomNavBarContainerView_Previews: PreviewProvider {
                 
                 Text("Hello, world!")
                     .foregroundColor(.white)
+                    .customNavigationBarColor(Color.red)
                     .customNavigationTitle("New Title")
                     .customNavigationSubtitle("subtitle")
                     .customNavigationBarBackButtonHidden(true)

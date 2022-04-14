@@ -11,7 +11,7 @@ import SwiftUI
 struct BitirmeProjesiApp: App {
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            UserInformationSectionView()
         }
     }
 }
