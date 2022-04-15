@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct CustomTabBarView: View {
+public struct CustomTabBarView: View {
     
     let tabs: [TabBarItem]
     @Binding var selection: TabBarItem
     @Namespace private var namespace
     @State var localSelection: TabBarItem
     
-    var body: some View {
+    public var body: some View {
         tabBarVersion2
             .onChange(of: selection, perform: { value in
                 withAnimation(.easeInOut) {

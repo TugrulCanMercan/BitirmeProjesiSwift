@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomNavBarContent: View {
+public struct CustomNavBarContent: View {
     
     @Environment(\.presentationMode) var presentationMode
     let showBackButton: Bool
@@ -17,7 +17,7 @@ struct CustomNavBarContent: View {
     let showRightItem: Bool
     let rightAndLeftItemWidth:CGFloat = 30
     
-    var body: some View {
+    public var body: some View {
         
         HStack {
             

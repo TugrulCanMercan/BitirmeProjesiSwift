@@ -7,6 +7,7 @@
 
 import SwiftUI
 import LocalAuthentication
+import Component
 
 struct UserInformationSectionView: View {
     @State private var enableLogging = false

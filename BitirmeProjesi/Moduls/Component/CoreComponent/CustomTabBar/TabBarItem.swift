@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum TabBarItem: Hashable {
+public enum TabBarItem: Hashable {
     case home, favorites, profile, messages
     
     var iconName: String {

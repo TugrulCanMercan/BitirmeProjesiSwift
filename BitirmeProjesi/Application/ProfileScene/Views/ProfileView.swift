@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Component
 
 
 enum MenuItem:String,CaseIterable,Hashable{
@@ -26,6 +26,8 @@ struct ProfileView:View{
         CustomNavView {
             
             ScrollView {
+                
+                
                 
                   VStack(alignment: .center,spacing: 15){
                    

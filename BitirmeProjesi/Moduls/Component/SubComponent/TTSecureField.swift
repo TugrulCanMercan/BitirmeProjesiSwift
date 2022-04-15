@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct TTSecureField: View {
-    @State var mockText = ""
-    @State var placeHolder = ""
+public struct TTSecureField: View {
+    @State var mockText:String
+    @State var placeHolder:String
     
-    
-    var body: some View {
+    public init(mockText:String, placeHolder:String) {
+        self.mockText = mockText
+        self.placeHolder = placeHolder
+    }
+    public var body: some View {
         
         
         SecureField(placeHolder, text: $mockText)
@@ -25,6 +28,6 @@ struct TTSecureField: View {
 
 struct TTSecureField_Previews: PreviewProvider {
     static var previews: some View {
-        TTSecureField()
+        TTSecureField(mockText: "", placeHolder: "")
     }
 }

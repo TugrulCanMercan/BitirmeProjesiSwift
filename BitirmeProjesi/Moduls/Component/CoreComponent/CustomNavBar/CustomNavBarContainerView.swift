@@ -7,7 +7,7 @@
 
 import SwiftUI
 //NavigationView<Content> : View where Content : View
-struct CustomNavBarContainerView<Content: View>: View {
+public struct CustomNavBarContainerView<Content: View>: View {
     
     let content: Content
     @State private var showRightItem: Bool = true
@@ -15,11 +15,11 @@ struct CustomNavBarContainerView<Content: View>: View {
     @State private var title: String = ""
     @State private var subtitle: String? = nil
     @State private var color: Color = .red
-    init(@ViewBuilder content: () -> Content) {
+    public init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             CustomNavBarContent(showBackButton: showBackButton, title: title, subtitle: subtitle, navBarColor: color, showRightItem: showRightItem)
             content

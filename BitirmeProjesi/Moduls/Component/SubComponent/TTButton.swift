@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct TTButton: View {
+public struct TTButton: View {
     var text: String
     var icon: Image?
     let color:Color
     
     var clicked: (() -> Void)
     
-    init(text:String,icon:Image? = nil,clicked:@escaping (() -> Void),color:Color){
+    public init(text:String,icon:Image? = nil,clicked:@escaping (() -> Void),color:Color){
         self.text = text
         self.icon = icon
         self.clicked = clicked
         self.color = color
     }
-    var body: some View {
+    public var body: some View {
         Button {
             clicked()
         } label: {

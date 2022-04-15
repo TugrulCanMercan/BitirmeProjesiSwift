@@ -8,12 +8,17 @@
 import SwiftUI
 
 
-struct AppTabBarView: View {
+public struct AppTabBarView: View {
     
     @State private var selection: String = "home"
     @State private var tabSelection: TabBarItem = .home
     
-    var body: some View {
+    public init(selection:String,tabSelection:TabBarItem){
+        self.selection = selection
+        self.tabSelection = tabSelection
+    }
+    
+    public var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
             TestTabView(text: "1")
                 .tabBarItem(tab: .profile, selection: $tabSelection)
@@ -34,7 +39,7 @@ struct AppTabBarView: View {
 struct AppTabBarView_Previews: PreviewProvider {
     
     static var previews: some View {
-        AppTabBarView()
+        AppTabBarView(selection: "", tabSelection: .home)
     }
 }
 

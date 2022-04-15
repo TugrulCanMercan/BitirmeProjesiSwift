@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Component
 
 struct HomeView: View {
     

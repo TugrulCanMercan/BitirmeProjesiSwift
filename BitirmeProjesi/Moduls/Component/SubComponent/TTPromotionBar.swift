@@ -20,7 +20,7 @@ struct Pin:Hashable{
     let subTitle:String
     
 }
-struct TTPromotionBar: View {
+public struct TTPromotionBar: View {
     @State var percent:CGFloat = 0.50
     @State var color:Color = .gray
     @State var pinList:[Pin] = [Pin(name: "drop.fill", color: .gray, progresPercent: 0, subTitle: "İlk Ay")
@@ -29,7 +29,9 @@ struct TTPromotionBar: View {
                                 ,Pin(name: "drop.fill", color: .gray, progresPercent: 0.75, subTitle: "9.Ay"),
                                 Pin(name: "drop.fill", color: .gray, progresPercent: 1, subTitle: "TERFİ")]
     
-    var body: some View {
+    public init(){ }
+    
+    public var body: some View {
         ZStack(alignment: .leading){
             
             ZStack(alignment:.trailing ){

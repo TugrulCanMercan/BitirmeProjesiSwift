@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct ProgressBarIcon: View {
-    var body: some View {
+public struct ProgressBarIcon: View {
+    
+    
+    public var body: some View {
         VStack{
 
                 

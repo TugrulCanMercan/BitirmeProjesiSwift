@@ -8,11 +8,11 @@
 import SwiftUI
 
 
-struct TTTextFieldModifier:ViewModifier{
+public struct TTTextFieldModifier:ViewModifier{
     
     @Binding var text: String
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         
         HStack{
             content

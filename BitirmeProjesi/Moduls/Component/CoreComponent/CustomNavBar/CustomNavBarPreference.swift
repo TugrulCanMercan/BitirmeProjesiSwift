@@ -61,27 +61,27 @@ struct CustomNavigationBarRightItemPreferenceKey: PreferenceKey {
 
 extension View {
         
-    func customNavigationTitle(_ title: String) -> some View {
+    public func customNavigationTitle(_ title: String) -> some View {
         preference(key: CustomNavBarTitlePreferenceKey.self, value: title)
     }
 
-    func customNavigationSubtitle(_ subtitle: String?) -> some View {
+    public func customNavigationSubtitle(_ subtitle: String?) -> some View {
         preference(key: CustomNavBarSubtitlePreferenceKey.self, value: subtitle)
     }
     
-    func customNavigationBarBackButtonHidden(_ hidden: Bool) -> some View {
+    public func customNavigationBarBackButtonHidden(_ hidden: Bool) -> some View {
         preference(key: CustomNavBarBackButtonHiddenPreferenceKey.self, value: hidden)
     }
-    func customNavigationBarColor(_ color: Color) -> some View {
+    public func customNavigationBarColor(_ color: Color) -> some View {
         preference(key: CustomNavigationBarColorPreferenceKey.self, value: color)
     }
 
-    func custonNavigationShowRightItem(_ hidden: Bool) -> some View {
+    public func custonNavigationShowRightItem(_ hidden: Bool) -> some View {
         preference(key: CustomNavigationBarRightItemPreferenceKey.self, value: hidden)
     }
     
     
-    func customNavBarItems<Content:View>(title: String = "", subtitle: String? = nil, backButtonHidden: Bool = false,color:Color,rightItemShow:Bool ,@ViewBuilder deneme: () -> Content ) -> some View {
+    public func customNavBarItems<Content:View>(title: String = "", subtitle: String? = nil, backButtonHidden: Bool = false,color:Color,rightItemShow:Bool ,@ViewBuilder deneme: () -> Content ) -> some View {
         self
             .customNavigationBarColor(color)
             .customNavigationTitle(title)

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Component
+
 struct SingUpView: View {
     @State var mockData:String = ""
     

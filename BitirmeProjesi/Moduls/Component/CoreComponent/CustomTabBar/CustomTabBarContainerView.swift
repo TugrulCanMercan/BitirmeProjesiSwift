@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct CustomTabBarContainerView<Content:View>: View {
+public struct CustomTabBarContainerView<Content:View>: View {
     
     @Binding var selection: TabBarItem
     let content: Content
     @State private var tabs: [TabBarItem] = []
     
-    init(selection: Binding<TabBarItem>, @ViewBuilder content: () -> Content) {
+    public init(selection: Binding<TabBarItem>, @ViewBuilder content: () -> Content) {
         self._selection = selection
         self.content = content()
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack(alignment: .bottom) {
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

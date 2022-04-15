@@ -8,11 +8,16 @@
 import SwiftUI
 
 
-struct TTTextField: View {
+public struct TTTextField: View {
     
-    @State var mockText = ""
-    @State var placeHolder = ""
-    var body: some View {
+    @State var mockText:String
+    @State var placeHolder:String
+    
+    public init(mockText:String, placeHolder:String) {
+        self.mockText = mockText
+        self.placeHolder = placeHolder
+    }
+    public var body: some View {
         TextField(placeHolder, text: $mockText)
             .modifier(TTTextFieldModifier(text: $mockText))
         
@@ -28,6 +33,6 @@ struct TTTextField: View {
 
 struct LoginTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TTTextField()
+        TTTextField(mockText: "", placeHolder: "")
     }
 }
