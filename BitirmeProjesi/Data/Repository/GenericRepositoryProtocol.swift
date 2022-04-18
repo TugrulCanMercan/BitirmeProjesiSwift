@@ -7,17 +7,38 @@
 
 import Foundation
 import Combine
+import Infrastructure
 
+//protocol Repository {
+//    associatedtype T
+//    
+//    var service:DataTransferService {get}
+//    
+//    
+//    
+//    func get(id: Int, completionHandler: (T?, Error?) -> Void)
+//    func list(completionHandler: ([T]?, Error?) -> Void)
+//    func add(_ item: T, completionHandler: (Error?) -> Void)
+//    func delete(_ item: T, completionHandler: (Error?) -> Void)
+//    func edit(_ item: T, completionHandler: (Error?) -> Void)
+//}
+//
+//extension Repository{
+//    
+//    func list(completionHandler: ([T]?, Error?) -> Void){
+//        
+//    }
+//    func add(_ item: T, completionHandler: (Error?) -> Void){
+//        
+//    }
+//    func delete(_ item: T, completionHandler: (Error?) -> Void){
+//        
+//    }
+//    func edit(_ item: T, completionHandler: (Error?) -> Void){
+//        
+//    }
+//}
 
-protocol Repository {
-    associatedtype T
-    
-    func get(id: Int, completionHandler: (T?, Error?) -> Void)
-    func list(completionHandler: ([T]?, Error?) -> Void)
-    func add(_ item: T, completionHandler: (Error?) -> Void)
-    func delete(_ item: T, completionHandler: (Error?) -> Void)
-    func edit(_ item: T, completionHandler: (Error?) -> Void)
-}
 
 protocol CombineRepository {
     associatedtype T

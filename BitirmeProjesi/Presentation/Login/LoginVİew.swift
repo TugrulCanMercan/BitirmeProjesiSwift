@@ -6,19 +6,21 @@
 //
 
 import SwiftUI
+import Component
 
-struct LoginView: View {
+public struct LoginView: View {
     @State var mockData:String = ""
     
-    var body: some View {
+    public var body: some View {
         
         
         CustomNavView {
             VStack{
                 
-                TTTextField(mockText: mockData, placeHolder: "Mail Adresi")
                 
-                TTSecureField(mockText: mockData, placeHolder: "Şifre")
+//                TTTextField(mockText: mockData, placeHolder: "Mail Adresi")
+//
+//                TTSecureField(mockText: mockData, placeHolder: "Şifre")
                 
                
                 

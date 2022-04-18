@@ -16,7 +16,7 @@ struct UserInformationSectionView: View {
     @State var authCheckAlertContainer = false
     
     @State var authCheck = false
-    
+    let userRepo = UserRepository()
     
     var body: some View {
         

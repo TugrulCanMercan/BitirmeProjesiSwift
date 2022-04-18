@@ -11,6 +11,6 @@ import Infrastructure
 
 class LoginViewModel:ObservableObject {
     
-    let netconfig = NetworkConfigurable(
-    let network = DefaultNetworkService(config: <#T##NetworkConfigurable#>, sessionManager: <#T##NetworkSessionManager#>, logger: <#T##NetworkErrorLogger#>)
+//    let netconfig = NetworkConfigurable(
+//    let network = DefaultNetworkService(config: <#T##NetworkConfigurable#>, sessionManager: <#T##NetworkSessionManager#>, logger: <#T##NetworkErrorLogger#>)
 }

@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
-
+import DepedencyContainer
 @main
 struct BitirmeProjesiApp: App {
+   
+    
+    
+    
+    let dependencyManager = DependencyManager()
+    
     var body: some Scene {
         WindowGroup {
             UserInformationSectionView()

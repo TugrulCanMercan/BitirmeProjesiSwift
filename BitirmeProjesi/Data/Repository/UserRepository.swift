@@ -6,34 +6,53 @@
 //
 
 import Foundation
+import Infrastructure
+import DepedencyContainer
 
-struct User{
+import Combine
+
+
+class UserRepository{
+    
+    
+    
+    
+    let service:NetworkTransferServiceProtocol
+   
+    var cancellable = Set<AnyCancellable>()
+    init(){
+        let config = ApiDataNetworkConfig(baseURL: URL(string: "https://new-english-app.herokuapp.com/")!)
+        
+        self.service = NetworkTransferService(networkManager: NetworkManager(networkConfig: config))
+        login(userName: "", password: "")
+    }
+    
+
+}
+
+
+struct English:Codable{
+    
+    let Word:String
+    let turkish:String
+}
+
+
+extension UserRepository{
+    func login(userName: String, password: String)  {
+        let endpoint = APIEndpoints.english()
+
+        service.request(with: endpoint) { (result:Result<[English],Error>) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let failure):
+                print(failure)
+            }
+        }
+
+        
+    }
+    
     
 }
-//final class UserRepository:CombineRepository{
-//    func get(id: Int) -> AnyPublisher<User, Error> {
-//        <#code#>
-//    }
-//
-//    func list() -> AnyPublisher<[User], Error> {
-//        <#code#>
-//    }
-//
-//    func add(_ item: User) -> AnyPublisher<Void, Error> {
-//        <#code#>
-//    }
-//
-//    func delete(_ item: User) -> AnyPublisher<Void, Error> {
-//        <#code#>
-//    }
-//
-//    func edit(_ item: User) -> AnyPublisher<Void, Error> {
-//        <#code#>
-//    }
-//
-//
-//
-//    typealias T = User
-//
-//
-//}
