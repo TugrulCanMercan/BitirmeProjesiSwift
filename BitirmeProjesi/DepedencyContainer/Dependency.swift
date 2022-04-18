@@ -7,16 +7,17 @@
 
 import Foundation
 
-public protocol IsDependency{
-    
-}
+public protocol Injectable {}
+
+
 
 @propertyWrapper
-public final class Dependency<T:IsDependency>{
-    public var wrappedValue:T
+public struct Inject<T: Injectable> {
+    public let wrappedValue: T
     
-    public init(wrappedValue:T){
-        self.wrappedValue = DIContainer.resolve()
+    
+    public init(){
+        wrappedValue = DIContainer.shared.resolve()
     }
 }
 

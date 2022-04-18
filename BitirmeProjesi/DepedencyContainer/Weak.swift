@@ -7,19 +7,19 @@
 
 import Foundation
 
-
-public class Weak:Equatable{
-   
-    
-    
-    weak var value:AnyObject?
-    
-    init(value:AnyObject){
-        self.value = value
-    }
-    public static func == (lhs: Weak, rhs: Weak) -> Bool {
-        return lhs.value === rhs.value
-    }
-    
-}
+//
+//public class Weak:Equatable{
+//   
+//    
+//    
+//    weak var value:AnyObject?
+//    
+//    init(value:AnyObject){
+//        self.value = value
+//    }
+//    public static func == (lhs: Weak, rhs: Weak) -> Bool {
+//        return lhs.value === rhs.value
+//    }
+//    
+//}
 

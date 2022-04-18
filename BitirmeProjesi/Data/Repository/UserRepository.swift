@@ -17,14 +17,15 @@ class UserRepository{
     
     
     
-//    @Dependency var dataTransferService:DefaultDataTransferService
-//    private let config:NetworkConfigurable
+    @Inject var dataTransferService:DefaultDataTransferService
+
    
     var cancellable = Set<AnyCancellable>()
     
     init(){
-//        self.dataTransferService = DIContainer.resolve()
+        login(userName: "", password: "")
     }
+   
     
 
 }
@@ -42,25 +43,14 @@ extension UserRepository{
         let endpoint = APIEndpoints.english()
         dataTransferService.request(with: endpoint) { result in
             switch result{
-                
+
             case .success(let res):
                 print(res)
             case .failure(let err):
                 print(err)
             }
-        }
-        
-//        service.request(with: endpoint) { (result:Result<[English],Error>) in
-//            switch result {
-//            case .success(let response):
-//                print(response)
-//            case .failure(let failure):
-//                print(failure)
-//            }
-//        }
+        }?.resume()
 
-        
+
     }
-    
-    
 }

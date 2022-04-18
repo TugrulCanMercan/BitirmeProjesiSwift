@@ -7,7 +7,7 @@ public protocol NetworkConfigurable {
     var queryParameters: [String: String] { get }
 }
 
-public struct ApiDataNetworkConfig:IsDependency, NetworkConfigurable {
+public struct ApiDataNetworkConfig: NetworkConfigurable {
     public let baseURL: URL
     public let headers: [String: String]
     public let queryParameters: [String: String]

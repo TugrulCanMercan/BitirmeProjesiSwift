@@ -9,7 +9,7 @@ public enum DataTransferError: Error {
     case resolvedNetworkFailure(Error)
 }
 
-public protocol DataTransferService:IsDependency{
+public protocol DataTransferService{
     typealias CompletionHandler<T> = (Result<T, DataTransferError>) -> Void
     
     @discardableResult
@@ -29,7 +29,7 @@ public protocol ResponseDecoder {
 public protocol DataTransferErrorLogger {
     func log(error: Error)
 }
-public final class DefaultDataTransferService {
+public final class DefaultDataTransferService:Injectable {
     
     private let networkService: NetworkService
     private let errorResolver: DataTransferErrorResolver

@@ -29,7 +29,7 @@ public protocol NetworkErrorLogger {
     func log(responseData data: Data?, response: URLResponse?)
     func log(error: Error)
 }
-public final class DefaultNetworkService:IsDependency {
+public final class DefaultNetworkService {
     
     private let config: NetworkConfigurable
     private let sessionManager: NetworkSessionManager
