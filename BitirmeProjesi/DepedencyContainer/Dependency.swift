@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol IsDependency:AnyObject{
+public protocol IsDependency{
     
 }
 

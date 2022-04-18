@@ -1,6 +1,5 @@
-
-
-
+import Foundation
+import DepedencyContainer
 
 public protocol NetworkConfigurable {
     var baseURL: URL { get }
@@ -8,7 +7,7 @@ public protocol NetworkConfigurable {
     var queryParameters: [String: String] { get }
 }
 
-public struct ApiDataNetworkConfig: NetworkConfigurable {
+public struct ApiDataNetworkConfig:IsDependency, NetworkConfigurable {
     public let baseURL: URL
     public let headers: [String: String]
     public let queryParameters: [String: String]

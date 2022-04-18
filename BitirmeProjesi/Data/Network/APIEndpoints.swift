@@ -23,7 +23,7 @@ struct APIEndpoints {
 //                        queryParametersEncodable: UUIDRequestDTO)
 //    }
     static func english() -> Endpoint<[english]>{
-        return Endpoint(path: "", httpMethod: .get)
+        return Endpoint(path: "", method: .get)
     }
     
 //    static func loginUser(with userLoginRequestDTO:UserLoginRequestDTO)-> Endpoint<UserAccessResponseDTO>{

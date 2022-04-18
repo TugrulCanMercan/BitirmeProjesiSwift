@@ -17,14 +17,13 @@ class UserRepository{
     
     
     
-    let service:NetworkTransferServiceProtocol
+//    @Dependency var dataTransferService:DefaultDataTransferService
+//    private let config:NetworkConfigurable
    
     var cancellable = Set<AnyCancellable>()
+    
     init(){
-        let config = ApiDataNetworkConfig(baseURL: URL(string: "https://new-english-app.herokuapp.com/")!)
-        
-        self.service = NetworkTransferService(networkManager: NetworkManager(networkConfig: config))
-        login(userName: "", password: "")
+//        self.dataTransferService = DIContainer.resolve()
     }
     
 
@@ -41,15 +40,24 @@ struct English:Codable{
 extension UserRepository{
     func login(userName: String, password: String)  {
         let endpoint = APIEndpoints.english()
-
-        service.request(with: endpoint) { (result:Result<[English],Error>) in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let failure):
-                print(failure)
+        dataTransferService.request(with: endpoint) { result in
+            switch result{
+                
+            case .success(let res):
+                print(res)
+            case .failure(let err):
+                print(err)
             }
         }
+        
+//        service.request(with: endpoint) { (result:Result<[English],Error>) in
+//            switch result {
+//            case .success(let response):
+//                print(response)
+//            case .failure(let failure):
+//                print(failure)
+//            }
+//        }
 
         
     }
