@@ -59,6 +59,18 @@
 		E4080466280EFE8D004A2537 /* NetworkTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4080462280EFE8D004A2537 /* NetworkTransferService.swift */; };
 		E4080467280EFE8D004A2537 /* NetworkConfigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4080463280EFE8D004A2537 /* NetworkConfigration.swift */; };
 		E408046A280EFFC5004A2537 /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4080469280EFFC5004A2537 /* AuthRepository.swift */; };
+		E408046D280F0701004A2537 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E408046C280F0701004A2537 /* Swinject */; };
+		E4080470280F072E004A2537 /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408046F280F072E004A2537 /* DIManager.swift */; };
+		E4080472280F18B2004A2537 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4080471280F18B2004A2537 /* ErrorObject.swift */; };
+		E4A22112280FEFF4000C3510 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A22111280FEFF4000C3510 /* String+Extension.swift */; };
+		E4A2211428102AAA000C3510 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211328102AAA000C3510 /* GetUserUseCase.swift */; };
+		E4A2211628102B4F000C3510 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211528102B4F000C3510 /* UserRepositoryProtocol.swift */; };
+		E4A2211828102BC1000C3510 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211728102BC1000C3510 /* UserRepository.swift */; };
+		E4A2211A281040C3000C3510 /* UserInformationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A22119281040C3000C3510 /* UserInformationDTO.swift */; };
+		E4A2211C28104456000C3510 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211B28104456000C3510 /* UserInfo.swift */; };
+		E4A2211E28104953000C3510 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211D28104953000C3510 /* ProfileViewModel.swift */; };
+		E4A22120281055F7000C3510 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211F281055F7000C3510 /* SignUpViewModel.swift */; };
+		E4A2212228105A75000C3510 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2212128105A75000C3510 /* SignUpUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +157,17 @@
 		E4080462280EFE8D004A2537 /* NetworkTransferService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTransferService.swift; sourceTree = "<group>"; };
 		E4080463280EFE8D004A2537 /* NetworkConfigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfigration.swift; sourceTree = "<group>"; };
 		E4080469280EFFC5004A2537 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		E408046F280F072E004A2537 /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
+		E4080471280F18B2004A2537 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
+		E4A22111280FEFF4000C3510 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		E4A2211328102AAA000C3510 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
+		E4A2211528102B4F000C3510 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E4A2211728102BC1000C3510 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		E4A22119281040C3000C3510 /* UserInformationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationDTO.swift; sourceTree = "<group>"; };
+		E4A2211B28104456000C3510 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		E4A2211D28104953000C3510 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		E4A2211F281055F7000C3510 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		E4A2212128105A75000C3510 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +177,7 @@
 			files = (
 				E40803E1280EFA49004A2537 /* TTComponents.framework in Frameworks */,
 				E408045B280EFE7C004A2537 /* Infrastructure.framework in Frameworks */,
+				E408046D280F0701004A2537 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,10 +309,10 @@
 		E4080416280EFC64004A2537 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E4A2210F280FEFC5000C3510 /* Helper */,
 				E4080421280EFCCA004A2537 /* ProfilScene */,
 				E408041C280EFCA0004A2537 /* SignUp */,
 				E408041B280EFC99004A2537 /* Login */,
-				E4080419280EFC8F004A2537 /* SignUpView.swift */,
 				E4080417280EFC87004A2537 /* HomeView.swift */,
 			);
 			path = Presentation;
@@ -306,6 +330,8 @@
 		E408041C280EFCA0004A2537 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				E4080419280EFC8F004A2537 /* SignUpView.swift */,
+				E4A2211F281055F7000C3510 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -314,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				E4080422280EFCDA004A2537 /* Views */,
+				E4A2211D28104953000C3510 /* ProfileViewModel.swift */,
 			);
 			path = ProfilScene;
 			sourceTree = "<group>";
@@ -352,6 +379,8 @@
 				E4080432280EFD7B004A2537 /* UserAccessToken.swift */,
 				E4080433280EFD7B004A2537 /* UserLoginEntity.swift */,
 				E4080434280EFD7B004A2537 /* UserSignUpEntity.swift */,
+				E4080471280F18B2004A2537 /* ErrorObject.swift */,
+				E4A2211B28104456000C3510 /* UserInfo.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -360,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				E4080430280EFD6B004A2537 /* AuthRepositoryProtocol.swift */,
+				E4A2211528102B4F000C3510 /* UserRepositoryProtocol.swift */,
 			);
 			path = IRepository;
 			sourceTree = "<group>";
@@ -368,6 +398,8 @@
 			isa = PBXGroup;
 			children = (
 				E408042E280EFD53004A2537 /* LoginUseCase.swift */,
+				E4A2211328102AAA000C3510 /* GetUserUseCase.swift */,
+				E4A2212128105A75000C3510 /* SignUpUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -402,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				E4080469280EFFC5004A2537 /* AuthRepository.swift */,
+				E4A2211728102BC1000C3510 /* UserRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -431,6 +464,7 @@
 				E408044A280EFE0E004A2537 /* ResponseMessageDTO.swift */,
 				E408044B280EFE0E004A2537 /* UserAccessResponseDTO.swift */,
 				E4080449280EFE0E004A2537 /* UserResponseDTO.swift */,
+				E4A22119281040C3000C3510 /* UserInformationDTO.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -450,9 +484,34 @@
 		E4080468280EFE95004A2537 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E408046E280F070D004A2537 /* DependencyInjection */,
 				E40803C8280EFA12004A2537 /* InterViewProjectApp.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		E408046E280F070D004A2537 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				E408046F280F072E004A2537 /* DIManager.swift */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		E4A2210F280FEFC5000C3510 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E4A22110280FEFCD000C3510 /* Extension */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E4A22110280FEFCD000C3510 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E4A22111280FEFF4000C3510 /* String+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +552,9 @@
 				E408045A280EFE7C004A2537 /* PBXTargetDependency */,
 			);
 			name = InterViewProject;
+			packageProductDependencies = (
+				E408046C280F0701004A2537 /* Swinject */,
+			);
 			productName = InterViewProject;
 			productReference = E40803C5280EFA12004A2537 /* InterViewProject.app */;
 			productType = "com.apple.product-type.application";
@@ -565,6 +627,9 @@
 				Base,
 			);
 			mainGroup = E40803BC280EFA12004A2537;
+			packageReferences = (
+				E408046B280F0701004A2537 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = E40803C6280EFA12004A2537 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -607,20 +672,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4080470280F072E004A2537 /* DIManager.swift in Sources */,
 				E408041A280EFC8F004A2537 /* SignUpView.swift in Sources */,
 				E408046A280EFFC5004A2537 /* AuthRepository.swift in Sources */,
 				E4080431280EFD6B004A2537 /* AuthRepositoryProtocol.swift in Sources */,
 				E4080418280EFC87004A2537 /* HomeView.swift in Sources */,
+				E4080472280F18B2004A2537 /* ErrorObject.swift in Sources */,
 				E4080447280EFE04004A2537 /* UserSignUpDTO.swift in Sources */,
 				E408044C280EFE0E004A2537 /* UserResponseDTO.swift in Sources */,
+				E4A22112280FEFF4000C3510 /* String+Extension.swift in Sources */,
+				E4A2211A281040C3000C3510 /* UserInformationDTO.swift in Sources */,
 				E4080420280EFCB3004A2537 /* LoginViewModel.swift in Sources */,
+				E4A2211828102BC1000C3510 /* UserRepository.swift in Sources */,
+				E4A2211E28104953000C3510 /* ProfileViewModel.swift in Sources */,
 				E408044D280EFE0E004A2537 /* ResponseMessageDTO.swift in Sources */,
 				E40803CB280EFA12004A2537 /* ContentView.swift in Sources */,
 				E408044E280EFE0E004A2537 /* UserAccessResponseDTO.swift in Sources */,
 				E4080446280EFE04004A2537 /* UUIDRequestDTO.swift in Sources */,
+				E4A2211628102B4F000C3510 /* UserRepositoryProtocol.swift in Sources */,
+				E4A22120281055F7000C3510 /* SignUpViewModel.swift in Sources */,
 				E4080436280EFD7B004A2537 /* UserLoginEntity.swift in Sources */,
 				E4080428280EFD01004A2537 /* PromotionSectionView.swift in Sources */,
 				E4080437280EFD7B004A2537 /* UserSignUpEntity.swift in Sources */,
+				E4A2211428102AAA000C3510 /* GetUserUseCase.swift in Sources */,
 				E408041E280EFCAD004A2537 /* LoginVİew.swift in Sources */,
 				E4080424280EFCE8004A2537 /* ProfileView.swift in Sources */,
 				E408043F280EFDD9004A2537 /* APIEndpoints.swift in Sources */,
@@ -628,7 +702,9 @@
 				E40803C9280EFA12004A2537 /* InterViewProjectApp.swift in Sources */,
 				E4080429280EFD01004A2537 /* UserInformationSectionView.swift in Sources */,
 				E4080435280EFD7B004A2537 /* UserAccessToken.swift in Sources */,
+				E4A2211C28104456000C3510 /* UserInfo.swift in Sources */,
 				E408042F280EFD53004A2537 /* LoginUseCase.swift in Sources */,
+				E4A2212228105A75000C3510 /* SignUpUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,6 +1096,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E408046B280F0701004A2537 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E408046C280F0701004A2537 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E408046B280F0701004A2537 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E40803BD280EFA12004A2537 /* Project object */;
 }

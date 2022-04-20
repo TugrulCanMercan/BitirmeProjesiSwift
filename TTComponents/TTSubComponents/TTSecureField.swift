@@ -8,18 +8,18 @@
 import SwiftUI
 
 public struct TTSecureField: View {
-    @State var mockText:String
+    @Binding var text:String
     @State var placeHolder:String
     
-    public init(mockText:String, placeHolder:String) {
-        self.mockText = mockText
+    public init(text:Binding<String>, placeHolder:String) {
+        self._text = text
         self.placeHolder = placeHolder
     }
     public var body: some View {
         
         
-        SecureField(placeHolder, text: $mockText)
-            .modifier(TTTextFieldModifier(text: $mockText))
+        SecureField(placeHolder, text: $text)
+            .modifier(TTTextFieldModifier(text: $text))
         
         
         
@@ -28,6 +28,8 @@ public struct TTSecureField: View {
 
 struct TTSecureField_Previews: PreviewProvider {
     static var previews: some View {
-        TTSecureField(mockText: "", placeHolder: "")
+        VStack{
+            
+        }
     }
 }

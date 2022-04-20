@@ -15,59 +15,67 @@ enum MenuItem:String,CaseIterable,Hashable{
     case advancement = "Terfilerim"
     case profileInfo = "Kullanıcı Bilgilerim"
     
-
+    
 }
 
 
 struct ProfileView:View{
     @State var menu:MenuItem = .advancement
+    
+    @StateObject var VM = ProfileViewModel()
+    
+    
     var body: some View{
         
         CustomNavView {
-            
-            ScrollView {
+            GeometryReader{geo in
+                ScrollView {
+                    
+                    
+                    VStack(alignment: .center,spacing: 15){
+                        
+                        ProfilPhotos(profileName: VM.userInfo?.surname ?? "BOŞ GELDİ")
+                        
+                        
+                        
+                        MenuSubView(menu: $menu)
+                        
+                        
+                        if menu == MenuItem.advancement {
+                            TTPromotionBar()
+                        }else if menu == MenuItem.profileInfo{
+                            UserInformationSectionView()
+                                .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                        }
+                        
+                        
+                        
+                        Spacer()
+                        
+                    }
+                    .padding(.vertical)
+                    .customNavBarItems(title: "Profile", backButtonHidden: true, color: .purple, rightItemShow: true, deneme: {
+                        VStack{
+                            Text("dsad")
+                        }
+                    })
+                    
+                    
+                    
+                    
+                    
+                }
+                .background(Color(uiColor: UIColor.systemGray6))
                 
-                
-                
-                  VStack(alignment: .center,spacing: 15){
-                   
-                      ProfilPhotos()
-                      
-                   
-                      
-                      MenuSubView(menu: $menu)
-                      
-                      
-                      if menu == MenuItem.advancement {
-                          TTPromotionBar()
-                      }else if menu == MenuItem.profileInfo{
-                          UserInformationSectionView()
-                      }
-                      
-                      
-                      
-                          Spacer()
-  
-                  }
-                  .padding(.vertical)
-                  .customNavBarItems(title: "Profile", backButtonHidden: true, color: .purple, rightItemShow: true, deneme: {
-                      VStack{
-                          
-                      }
-                  })
-                  
-                  
             }
             
-        
-         
             
         }
-
+        
     }
     
     
-  
+    
 }
 
 struct ProfileView_Previews: PreviewProvider {
@@ -114,6 +122,13 @@ struct MenuSubView: View {
 }
 
 struct ProfilPhotos: View {
+    
+    var profileName:String
+    
+    init(profileName:String){
+        self.profileName = profileName
+    }
+    
     var body: some View {
         VStack{
             Circle()
@@ -130,7 +145,7 @@ struct ProfilPhotos: View {
                 .frame(width: UIScreen.main.bounds.width / 4, height: UIScreen.main.bounds.width / 4, alignment: .center)
             
             
-            Text("Tuğrul Can MERCAN")
+            Text(profileName)
             
                 .minimumScaleFactor(0.8)
                 .frame(maxWidth : 100)

@@ -11,38 +11,91 @@ import TTComponents
 public struct LoginView: View {
     @State var mockData:String = ""
     
-    
+    @StateObject var viewModel = LoginViewModel()
+    @State var push = false
     public var body: some View {
         
         
         CustomNavView {
-            VStack{
+            
+            ZStack(alignment:.center){
                 
-                
-//                TTTextField(mockText: mockData, placeHolder: "Mail Adresi")
-//
-//                TTSecureField(mockText: mockData, placeHolder: "Şifre")
-                
-               
-                
+              
+              
                 VStack{
-                    TTButton(text: "Giriş Yap", clicked: {
-                        print("")
-                    }, color: .blue)
-                    LabelledDivider(label: "Yada")
-                    TTButton(text: "Kayıt Olmak İçin", clicked: {
-                        print("")
-                    }, color: .blue)
+                    
+                    
+                    
+                    TTTextField(text: $viewModel.email, placeHolder: "Mail Adresi",prompt: viewModel.emailPrompt)
+
+                    TTSecureField(text: $viewModel.password, placeHolder: "Şifre")
+                    
+                   
+                    
+                    VStack{
+                        TTButton(text: "Giriş Yap", clicked: {
+                            viewModel.login()
+                           
+                        }, color: .blue)
+                            .fullScreenCover(isPresented: $viewModel.showHome, onDismiss: nil) {
+                                ProfileView()
+                            }
+                        LabelledDivider(label: "Yada")
+                        
+                        CustomNavLink(destination:  SingUpView()) {
+                            Text("Kayıt Olmak İçin")
+                                .padding(4)
+                                .overlay {
+                                    Capsule()
+                                        .stroke(lineWidth: 4)
+
+                                }
+                        }
+                        
+
+                        
+//                        TTButton(text: "Kayıt Olmak İçin", clicked: {
+//                            print("")
+//                        }, color: .blue)
+                            
+                            
+
+                      
+                      
+
+                    }
+              
+                    
                 }
-          
                 
+                .customNavigationBarBackButtonHidden(true)
+                .customNavigationTitle("Online Terfi Login")
+                .customNavigationBarColor(.yellow)
+                .frame(maxHeight: .infinity)
+                
+                
+                
+                
+                if viewModel.showError {
+                    Color.black.opacity(0.8)
+                    VStack{
+                        Image(systemName: "xmark.octagon.fill")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .foregroundColor(.red)
+                        Text(viewModel.errorObject?.errorDescription ?? "Hata")
+                            .foregroundColor(Color.white)
+                    }
+                    .onTapGesture {
+                        viewModel.showError.toggle()
+                    }
+                }
+               
+               
             }
+           
             
-            .customNavigationBarBackButtonHidden(true)
-            .customNavigationTitle("Online Terfi Login")
-            .customNavigationBarColor(.yellow)
-            .frame(maxHeight: .infinity)
-            
+         
         }
         
        

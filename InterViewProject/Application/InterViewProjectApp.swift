@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct InterViewProjectApp: App {
+    
+    let manager  = DIManager.shared
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+          
+            LoginView()
         }
+    }
+    
+    func tokenCheck(){
+        if let token:UserAccessToken? = UserDefaults.standard.object(forKey: "token") as? UserAccessToken{
+            
+        }
+        
     }
 }

@@ -58,6 +58,8 @@ public final class DefaultNetworkService {
                 self.logger.log(error: error)
                 completion(.failure(error))
             } else {
+                
+               print( String(data: data!, encoding: .utf8))
                 self.logger.log(responseData: data, response: response)
                 completion(.success(data))
             }

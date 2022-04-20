@@ -42,13 +42,13 @@ public protocol ResponseRequestable: Requestable {
 extension Requestable {
     
     func url(with config: NetworkConfigurable) throws -> URL {
-
+        
         let baseURL = config.baseURL.absoluteString.last != "/" ? config.baseURL.absoluteString + "/" : config.baseURL.absoluteString
         let endpoint = isFullPath ? path : baseURL.appending(path)
         
         guard var urlComponents = URLComponents(string: endpoint) else { throw RequestGenerationError.components }
         var urlQueryItems = [URLQueryItem]()
-
+        
         let queryParameters = try queryParametersEncodable?.toDictionary() ?? self.queryParameters
         queryParameters.forEach {
             urlQueryItems.append(URLQueryItem(name: $0.key, value: "\($0.value)"))
@@ -67,20 +67,32 @@ extension Requestable {
         var urlRequest = URLRequest(url: url)
         var allHeaders: [String: String] = config.headers
         headerParamaters.forEach { allHeaders.updateValue($1, forKey: $0) }
-
+       
+     
         let bodyParamaters = try bodyParamatersEncodable?.toDictionary() ?? self.bodyParamaters
+//
+//        if let httpBody = try? JSONSerialization.data(withJSONObject: bodyParamaters, options: .prettyPrinted)  {
+//            urlRequest.httpBody = httpBody
+//        }
         if !bodyParamaters.isEmpty {
             urlRequest.httpBody = encodeBody(bodyParamaters: bodyParamaters, bodyEncoding: bodyEncoding)
         }
+       
         urlRequest.httpMethod = method.rawValue
         urlRequest.allHTTPHeaderFields = allHeaders
+//        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+       
         return urlRequest
     }
     
     private func encodeBody(bodyParamaters: [String: Any], bodyEncoding: BodyEncoding) -> Data? {
         switch bodyEncoding {
         case .jsonSerializationData:
-            return try? JSONSerialization.data(withJSONObject: bodyParamaters)
+//            guard let httpBody = try? JSONSerialization.data(withJSONObject: bodyParamaters, options: .prettyPrinted) else {
+//                return nil
+//            }
+            
+            return try? JSONSerialization.data(withJSONObject: bodyParamaters, options: .prettyPrinted)
         case .stringEncodingAscii:
             return bodyParamaters.queryString.data(using: String.Encoding.ascii, allowLossyConversion: true)
         }
@@ -105,15 +117,15 @@ public struct Endpoint<R>: ResponseRequestable {
     public let responseDecoder: ResponseDecoder
     
     public init(path: String,
-         isFullPath: Bool = false,
-         method: HTTPMethodType,
-         headerParamaters: [String: String] = [:],
-         queryParametersEncodable: Encodable? = nil,
-         queryParameters: [String: Any] = [:],
-         bodyParamatersEncodable: Encodable? = nil,
-         bodyParamaters: [String: Any] = [:],
-         bodyEncoding: BodyEncoding = .jsonSerializationData,
-         responseDecoder: ResponseDecoder = JSONResponseDecoder()) {
+                isFullPath: Bool = false,
+                method: HTTPMethodType,
+                headerParamaters: [String: String] = [:],
+                queryParametersEncodable: Encodable? = nil,
+                queryParameters: [String: Any] = [:],
+                bodyParamatersEncodable: Encodable? = nil,
+                bodyParamaters: [String: Any] = [:],
+                bodyEncoding: BodyEncoding = .jsonSerializationData,
+                responseDecoder: ResponseDecoder = JSONResponseDecoder()) {
         self.path = path
         self.isFullPath = isFullPath
         self.method = method
@@ -130,8 +142,8 @@ public struct Endpoint<R>: ResponseRequestable {
 private extension Dictionary {
     var queryString: String {
         return self.map { "\($0.key)=\($0.value)" }
-            .joined(separator: "&")
-            .addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
+        .joined(separator: "&")
+        .addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
     }
 }
 

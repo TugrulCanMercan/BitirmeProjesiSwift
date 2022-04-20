@@ -15,6 +15,8 @@ struct HomeView: View {
     var body: some View {
         CustomTabBarContainerView(selection: $tabSelection) {
             Profile()
+                .tabBarItem(tab: .home, selection: $tabSelection)
+            ProfileView()
                 .tabBarItem(tab: .profile, selection: $tabSelection)
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)

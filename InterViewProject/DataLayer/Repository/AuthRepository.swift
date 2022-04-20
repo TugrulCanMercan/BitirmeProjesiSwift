@@ -15,6 +15,9 @@ class AuthRepository{
     init(networkService:DataTransferService){
         self.networkService = networkService
     }
+    
+    
+    
 }
 
 extension AuthRepository:AuthRepositoryProtocol{
@@ -46,6 +49,7 @@ extension AuthRepository:AuthRepositoryProtocol{
             }
         }
     }
+    
 }
 
 

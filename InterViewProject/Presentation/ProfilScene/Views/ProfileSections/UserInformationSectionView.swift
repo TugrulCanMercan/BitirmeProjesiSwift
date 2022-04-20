@@ -17,58 +17,62 @@ struct UserInformationSectionView: View {
     
     @State var authCheck = false
     
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+    }
+    
     
     var body: some View {
         
-        CustomNavView{
-            Form {
+        
+        Form {
+            
+            
+            Section {
+                TextField("İSİM", text: $selectedColor)
                 
+                TextField("SOYAD", text: $selectedColor)
                 
-                Section {
-                    TextField("İSİM", text: $selectedColor)
-                    
-                    TextField("SOYAD", text: $selectedColor)
-                    
-                } header: {
-                    Text("Kullanıcı Bilgileri")
-                    
-                }
+            } header: {
+                Text("Kullanıcı Bilgileri")
                 
-                Section {
-                    if(!authCheck){
-                        Button {
-                            authenticate()
-                        } label: {
-                            Text("Şifre Değiştirme")
-                                .foregroundColor(.black)
-                        }
-                    }else{
-                        NavigationLink("Şifre Değiştirme", isActive: $authCheck) {
-                            Text("Şifre Kontrol")
-                        }
-                    }
-
-                } header: {
-                    Text("Gizlilik ve Parola")
-                }
-
-                Section(footer: Text("Note: Enabling logging may slow down the app")) {
-                    Toggle("Enable Logging", isOn: $enableLogging)
-                    
-                    
-                }
-                
-                Section {
-                    Button("Save changes") {
-                        // activate theme!
-                    }
-                }
             }
             
-            .customNavigationBarBackButtonHidden(true)
-            .customNavigationTitle("Profilini Düzenle")
-            .customNavigationBarColor(.yellow)
+            Section {
+                if(!authCheck){
+                    Button {
+                        authenticate()
+                    } label: {
+                        Text("Şifre Değiştirme")
+                            .foregroundColor(.black)
+                    }
+                }else{
+                    NavigationLink("Şifre Değiştirme", isActive: $authCheck) {
+                        Text("Şifre Kontrol")
+                    }
+                }
+                
+            } header: {
+                Text("Gizlilik ve Parola")
+            }
+            
+            Section(footer: Text("Note: Enabling logging may slow down the app")) {
+                Toggle("Enable Logging", isOn: $enableLogging)
+                
+                
+            }
+            
+            Section {
+                Button("Save changes") {
+                    // activate theme!
+                }
+            }
         }
+        
+        .customNavigationBarBackButtonHidden(true)
+        .customNavigationTitle("Profilini Düzenle")
+        .customNavigationBarColor(.yellow)
+        
         
         
         

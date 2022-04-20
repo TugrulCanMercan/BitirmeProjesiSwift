@@ -24,11 +24,19 @@ struct APIEndpoints {
     
     
     static func loginUser(userLoginDto:UserLoginRequestDTO)->Endpoint<UserAccessResponseDTO>{
-        return Endpoint(path: "auth/signUp", method: .post)
+        return Endpoint(path: "auth/login", method: .post,headerParamaters: ["Content-Type":"application/json"],bodyParamatersEncodable: userLoginDto)
+    }
+   
+    static func signUpUser(userSignUp:UserSignUpDTO)->Endpoint<ResponseMessageDTO>{
+        return Endpoint(path: "auth/signUp", method: .post,headerParamaters: ["Content-Type":"application/json"],bodyParamatersEncodable: userSignUp)
     }
     
-    static func signUpUser(userSignUp:UserSignUpDTO)->Endpoint<ResponseMessageDTO>{
-        return Endpoint(path: "auth/signUp", method: .post)
+    static func getUser()->Endpoint<UserInformationDTO>{
+        let token = UserDefaults.standard.string(forKey: "token")
+        print("TOEKKKKKKNNNNN\(token)")
+        return Endpoint(path: "gateway/userService/getUser", method: .get ,headerParamaters: ["Authorization" : "Bearer \(token!)"])
     }
+    
+   
 
 }

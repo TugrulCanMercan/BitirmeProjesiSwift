@@ -23,13 +23,13 @@ public struct CustomNavBarContent: View {
             
 
             Button {
-                
+                presentationMode.wrappedValue.dismiss()
             } label: {
                 
                 
                 ZStack{
                     if (showBackButton){
-                        Text("dsada")
+                        Image(systemName: "arrow.left")
                     }
                 }
                 .frame(width:rightAndLeftItemWidth)
@@ -76,7 +76,7 @@ public struct CustomNavBarContent: View {
 struct CustomNavBarContent_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            CustomNavBarContent(showBackButton: false, title: "TItle here", subtitle: "Subtitle goes here", navBarColor: .blue, showRightItem: false)
+            CustomNavBarContent(showBackButton: true, title: "TItle here", subtitle: "Subtitle goes here", navBarColor: .blue, showRightItem: false)
             Spacer()
         }
     }
