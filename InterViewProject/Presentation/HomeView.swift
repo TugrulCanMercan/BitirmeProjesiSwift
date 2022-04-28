@@ -13,6 +13,8 @@ struct HomeView: View {
     @State private var selection: String = "profile"
     @State private var tabSelection: TabBarItem = .profile
     var body: some View {
+        
+        
         CustomTabBarContainerView(selection: $tabSelection) {
             Profile()
                 .tabBarItem(tab: .home, selection: $tabSelection)

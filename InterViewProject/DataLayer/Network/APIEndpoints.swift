@@ -33,8 +33,14 @@ struct APIEndpoints {
     
     static func getUser()->Endpoint<UserInformationDTO>{
         let token = UserDefaults.standard.string(forKey: "token")
-        print("TOEKKKKKKNNNNN\(token)")
-        return Endpoint(path: "gateway/userService/getUser", method: .get ,headerParamaters: ["Authorization" : "Bearer \(token!)"])
+        
+        return Endpoint(path: "gateway/userService/getUser", method: .get ,headerParamaters: ["Authorization" : "Bearer \(token ?? "")"])
+    }
+    
+    
+    static func addQuestion()->Endpoint<UserInformationDTO>{
+        let token = UserDefaults.standard.string(forKey: "token")
+        return Endpoint(path: "gateway/userService/getUser", method: .get ,headerParamaters: ["Authorization" : "Bearer \(token ?? "")"])
     }
     
    

@@ -28,7 +28,6 @@
 		E4080409280EFBDF004A2537 /* TTTextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4080408280EFBDF004A2537 /* TTTextFieldModifier.swift */; };
 		E4080410280EFBF4004A2537 /* ProgressBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408040A280EFBF4004A2537 /* ProgressBarIcon.swift */; };
 		E4080411280EFBF4004A2537 /* TTButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408040B280EFBF4004A2537 /* TTButton.swift */; };
-		E4080412280EFBF4004A2537 /* TTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408040C280EFBF4004A2537 /* TTTextField.swift */; };
 		E4080413280EFBF4004A2537 /* TTPromotionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408040D280EFBF4004A2537 /* TTPromotionBar.swift */; };
 		E4080414280EFBF4004A2537 /* TTLabelledDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408040E280EFBF4004A2537 /* TTLabelledDivider.swift */; };
 		E4080415280EFBF4004A2537 /* TTSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408040F280EFBF4004A2537 /* TTSecureField.swift */; };
@@ -62,6 +61,8 @@
 		E408046D280F0701004A2537 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = E408046C280F0701004A2537 /* Swinject */; };
 		E4080470280F072E004A2537 /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E408046F280F072E004A2537 /* DIManager.swift */; };
 		E4080472280F18B2004A2537 /* ErrorObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4080471280F18B2004A2537 /* ErrorObject.swift */; };
+		E424004728187A90001FABAD /* ExamQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E424004628187A90001FABAD /* ExamQuestionView.swift */; };
+		E48B987B2811785400392AA4 /* TTTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48B987A2811785400392AA4 /* TTTextField.swift */; };
 		E4A22112280FEFF4000C3510 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A22111280FEFF4000C3510 /* String+Extension.swift */; };
 		E4A2211428102AAA000C3510 /* GetUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211328102AAA000C3510 /* GetUserUseCase.swift */; };
 		E4A2211628102B4F000C3510 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211528102B4F000C3510 /* UserRepositoryProtocol.swift */; };
@@ -71,6 +72,15 @@
 		E4A2211E28104953000C3510 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211D28104953000C3510 /* ProfileViewModel.swift */; };
 		E4A22120281055F7000C3510 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211F281055F7000C3510 /* SignUpViewModel.swift */; };
 		E4A2212228105A75000C3510 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2212128105A75000C3510 /* SignUpUseCase.swift */; };
+		E4A761C82812F09500446DA4 /* TTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A761C72812F09500446DA4 /* TTView.swift */; };
+		E4C209FE281AC5C70036F91E /* AddQuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C209FD281AC5C70036F91E /* AddQuestionDetailView.swift */; };
+		E4C20A00281AC82A0036F91E /* TTPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C209FF281AC82A0036F91E /* TTPopUp.swift */; };
+		E4C20A02281AC9150036F91E /* TTPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A01281AC9150036F91E /* TTPicker.swift */; };
+		E4C20A05281AF0E80036F91E /* AddQuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A04281AF0E80036F91E /* AddQuestionViewModel.swift */; };
+		E4C20A07281AF5640036F91E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A06281AF5640036F91E /* Question.swift */; };
+		E4C20A09281B5C180036F91E /* QuestionAndExamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A08281B5C180036F91E /* QuestionAndExamUseCase.swift */; };
+		E4C20A0B281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A0A281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift */; };
+		E4C20A0D281B5DDE0036F91E /* QuestionExamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A0C281B5DDE0036F91E /* QuestionExamRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +137,6 @@
 		E4080408280EFBDF004A2537 /* TTTextFieldModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTextFieldModifier.swift; sourceTree = "<group>"; };
 		E408040A280EFBF4004A2537 /* ProgressBarIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarIcon.swift; sourceTree = "<group>"; };
 		E408040B280EFBF4004A2537 /* TTButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTButton.swift; sourceTree = "<group>"; };
-		E408040C280EFBF4004A2537 /* TTTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTTextField.swift; sourceTree = "<group>"; };
 		E408040D280EFBF4004A2537 /* TTPromotionBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTPromotionBar.swift; sourceTree = "<group>"; };
 		E408040E280EFBF4004A2537 /* TTLabelledDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTLabelledDivider.swift; sourceTree = "<group>"; };
 		E408040F280EFBF4004A2537 /* TTSecureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTSecureField.swift; sourceTree = "<group>"; };
@@ -159,6 +168,8 @@
 		E4080469280EFFC5004A2537 /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
 		E408046F280F072E004A2537 /* DIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
 		E4080471280F18B2004A2537 /* ErrorObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorObject.swift; sourceTree = "<group>"; };
+		E424004628187A90001FABAD /* ExamQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamQuestionView.swift; sourceTree = "<group>"; };
+		E48B987A2811785400392AA4 /* TTTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTTextField.swift; sourceTree = "<group>"; };
 		E4A22111280FEFF4000C3510 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		E4A2211328102AAA000C3510 /* GetUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserUseCase.swift; sourceTree = "<group>"; };
 		E4A2211528102B4F000C3510 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -168,6 +179,15 @@
 		E4A2211D28104953000C3510 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		E4A2211F281055F7000C3510 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		E4A2212128105A75000C3510 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		E4A761C72812F09500446DA4 /* TTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTView.swift; sourceTree = "<group>"; };
+		E4C209FD281AC5C70036F91E /* AddQuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionDetailView.swift; sourceTree = "<group>"; };
+		E4C209FF281AC82A0036F91E /* TTPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPopUp.swift; sourceTree = "<group>"; };
+		E4C20A01281AC9150036F91E /* TTPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPicker.swift; sourceTree = "<group>"; };
+		E4C20A04281AF0E80036F91E /* AddQuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewModel.swift; sourceTree = "<group>"; };
+		E4C20A06281AF5640036F91E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		E4C20A08281B5C180036F91E /* QuestionAndExamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAndExamUseCase.swift; sourceTree = "<group>"; };
+		E4C20A0A281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionExamRepositoryProtocol.swift; sourceTree = "<group>"; };
+		E4C20A0C281B5DDE0036F91E /* QuestionExamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionExamRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +273,7 @@
 		E40803EB280EFAB3004A2537 /* TTCoreComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E4A761C62812F06900446DA4 /* TTView */,
 				E40803EE280EFB01004A2537 /* TTTabBar */,
 				E40803ED280EFAF8004A2537 /* TTNavBar */,
 			);
@@ -267,8 +288,8 @@
 				E408040E280EFBF4004A2537 /* TTLabelledDivider.swift */,
 				E408040D280EFBF4004A2537 /* TTPromotionBar.swift */,
 				E408040F280EFBF4004A2537 /* TTSecureField.swift */,
-				E408040C280EFBF4004A2537 /* TTTextField.swift */,
 				E4080407280EFBD3004A2537 /* TTModifier */,
+				E48B987A2811785400392AA4 /* TTTextField.swift */,
 			);
 			path = TTSubComponents;
 			sourceTree = "<group>";
@@ -309,6 +330,7 @@
 		E4080416280EFC64004A2537 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				E424004528187A43001FABAD /* CreateExamQuestion */,
 				E4A2210F280FEFC5000C3510 /* Helper */,
 				E4080421280EFCCA004A2537 /* ProfilScene */,
 				E408041C280EFCA0004A2537 /* SignUp */,
@@ -381,6 +403,7 @@
 				E4080434280EFD7B004A2537 /* UserSignUpEntity.swift */,
 				E4080471280F18B2004A2537 /* ErrorObject.swift */,
 				E4A2211B28104456000C3510 /* UserInfo.swift */,
+				E4C20A06281AF5640036F91E /* Question.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -390,6 +413,7 @@
 			children = (
 				E4080430280EFD6B004A2537 /* AuthRepositoryProtocol.swift */,
 				E4A2211528102B4F000C3510 /* UserRepositoryProtocol.swift */,
+				E4C20A0A281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift */,
 			);
 			path = IRepository;
 			sourceTree = "<group>";
@@ -400,6 +424,7 @@
 				E408042E280EFD53004A2537 /* LoginUseCase.swift */,
 				E4A2211328102AAA000C3510 /* GetUserUseCase.swift */,
 				E4A2212128105A75000C3510 /* SignUpUseCase.swift */,
+				E4C20A08281B5C180036F91E /* QuestionAndExamUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -435,6 +460,7 @@
 			children = (
 				E4080469280EFFC5004A2537 /* AuthRepository.swift */,
 				E4A2211728102BC1000C3510 /* UserRepository.swift */,
+				E4C20A0C281B5DDE0036F91E /* QuestionExamRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -498,6 +524,15 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		E424004528187A43001FABAD /* CreateExamQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				E4C20A03281AF0BD0036F91E /* QuestionAddDetail */,
+				E424004628187A90001FABAD /* ExamQuestionView.swift */,
+			);
+			path = CreateExamQuestion;
+			sourceTree = "<group>";
+		};
 		E4A2210F280FEFC5000C3510 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +547,25 @@
 				E4A22111280FEFF4000C3510 /* String+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E4A761C62812F06900446DA4 /* TTView */ = {
+			isa = PBXGroup;
+			children = (
+				E4A761C72812F09500446DA4 /* TTView.swift */,
+				E4C209FF281AC82A0036F91E /* TTPopUp.swift */,
+				E4C20A01281AC9150036F91E /* TTPicker.swift */,
+			);
+			path = TTView;
+			sourceTree = "<group>";
+		};
+		E4C20A03281AF0BD0036F91E /* QuestionAddDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E4C209FD281AC5C70036F91E /* AddQuestionDetailView.swift */,
+				E4C20A04281AF0E80036F91E /* AddQuestionViewModel.swift */,
+			);
+			path = QuestionAddDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,21 +727,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4080470280F072E004A2537 /* DIManager.swift in Sources */,
+				E4C20A07281AF5640036F91E /* Question.swift in Sources */,
 				E408041A280EFC8F004A2537 /* SignUpView.swift in Sources */,
+				E4C20A05281AF0E80036F91E /* AddQuestionViewModel.swift in Sources */,
 				E408046A280EFFC5004A2537 /* AuthRepository.swift in Sources */,
+				E4C20A0B281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift in Sources */,
 				E4080431280EFD6B004A2537 /* AuthRepositoryProtocol.swift in Sources */,
 				E4080418280EFC87004A2537 /* HomeView.swift in Sources */,
 				E4080472280F18B2004A2537 /* ErrorObject.swift in Sources */,
 				E4080447280EFE04004A2537 /* UserSignUpDTO.swift in Sources */,
+				E424004728187A90001FABAD /* ExamQuestionView.swift in Sources */,
 				E408044C280EFE0E004A2537 /* UserResponseDTO.swift in Sources */,
 				E4A22112280FEFF4000C3510 /* String+Extension.swift in Sources */,
 				E4A2211A281040C3000C3510 /* UserInformationDTO.swift in Sources */,
+				E4C209FE281AC5C70036F91E /* AddQuestionDetailView.swift in Sources */,
 				E4080420280EFCB3004A2537 /* LoginViewModel.swift in Sources */,
 				E4A2211828102BC1000C3510 /* UserRepository.swift in Sources */,
 				E4A2211E28104953000C3510 /* ProfileViewModel.swift in Sources */,
+				E4C20A0D281B5DDE0036F91E /* QuestionExamRepository.swift in Sources */,
 				E408044D280EFE0E004A2537 /* ResponseMessageDTO.swift in Sources */,
 				E40803CB280EFA12004A2537 /* ContentView.swift in Sources */,
 				E408044E280EFE0E004A2537 /* UserAccessResponseDTO.swift in Sources */,
+				E4C20A09281B5C180036F91E /* QuestionAndExamUseCase.swift in Sources */,
 				E4080446280EFE04004A2537 /* UUIDRequestDTO.swift in Sources */,
 				E4A2211628102B4F000C3510 /* UserRepositoryProtocol.swift in Sources */,
 				E4A22120281055F7000C3510 /* SignUpViewModel.swift in Sources */,
@@ -714,13 +775,16 @@
 			files = (
 				E4080409280EFBDF004A2537 /* TTTextFieldModifier.swift in Sources */,
 				E40803F8280EFB6B004A2537 /* TabBarItem.swift in Sources */,
-				E4080412280EFBF4004A2537 /* TTTextField.swift in Sources */,
 				E4080413280EFBF4004A2537 /* TTPromotionBar.swift in Sources */,
 				E4080405280EFB85004A2537 /* NavBarRightItem.swift in Sources */,
+				E48B987B2811785400392AA4 /* TTTextField.swift in Sources */,
 				E4080414280EFBF4004A2537 /* TTLabelledDivider.swift in Sources */,
 				E4080404280EFB85004A2537 /* CustomNavLink.swift in Sources */,
 				E40803F2280EFB59004A2537 /* AppTabBarView.swift in Sources */,
+				E4C20A00281AC82A0036F91E /* TTPopUp.swift in Sources */,
 				E40803F7280EFB6B004A2537 /* CustomTabBarContainerView.swift in Sources */,
+				E4C20A02281AC9150036F91E /* TTPicker.swift in Sources */,
+				E4A761C82812F09500446DA4 /* TTView.swift in Sources */,
 				E4080402280EFB85004A2537 /* CustomNavBarContent.swift in Sources */,
 				E4080401280EFB85004A2537 /* CustomNavBarPreference.swift in Sources */,
 				E4080403280EFB85004A2537 /* CustomNavBarContainerView.swift in Sources */,
@@ -887,6 +951,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"InterViewProject/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Şifre";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -916,6 +981,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"InterViewProject/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Şifre";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -17,7 +17,7 @@ public struct TTTextFieldModifier:ViewModifier{
         HStack{
             content
             
-                .padding(8)
+                .padding(6)
             
                 .overlay(
                    
@@ -36,7 +36,7 @@ public struct TTTextFieldModifier:ViewModifier{
                         })
 
                 )
-                .padding()
+                
             
            
             

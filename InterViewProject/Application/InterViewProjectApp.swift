@@ -15,7 +15,9 @@ struct InterViewProjectApp: App {
         WindowGroup {
             
           
-            LoginView()
+//            LoginView()
+            ExamQuestionView()
+//            Test2View()
         }
     }
     
@@ -26,3 +28,42 @@ struct InterViewProjectApp: App {
         
     }
 }
+//struct ScaleButtonStyle: ButtonStyle {
+//
+//
+//    func makeBody(configuration: Self.Configuration) -> some View {
+//
+//
+//        VStack{
+//            if( configuration.isPressed){
+//
+//                configuration.label
+//                    .transition(.pivot)
+//
+//            }else{
+//                configuration.label
+//                    .foregroundColor(.red)
+//                    .background(.red)
+//                    .transition(.pivot)
+//
+//            }
+//        }
+//        .animation(.easeInOut(duration: 0.2), value:  configuration.isPressed)
+//
+//
+//
+//
+//    }
+//}
+//
+//struct Test2View: View {
+//    var body: some View {
+//        Button(action: {}) {
+//            RoundedRectangle(cornerRadius: 4).stroke().overlay {
+//                Text("buttın")
+//            }
+//            .frame(width: 100, height: 100, alignment: .center)
+//
+//        }.buttonStyle(ScaleButtonStyle())
+//    }
+//}

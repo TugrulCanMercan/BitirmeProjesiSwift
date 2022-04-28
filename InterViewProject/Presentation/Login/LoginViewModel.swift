@@ -10,6 +10,13 @@ import Combine
 
 import Infrastructure
 
+
+struct FormMessage{
+    var emailFormMessage:String
+    var passwordFormMessage:String
+}
+
+
 class LoginViewModel:ObservableObject {
     
     var cancellable = Set<AnyCancellable>()
@@ -21,11 +28,11 @@ class LoginViewModel:ObservableObject {
     @Published var showHome:Bool = false
     
     @Published var errorObject:ErrorObject?
-    
+    @Published var formMessage = FormMessage(emailFormMessage: "", passwordFormMessage: "")
     
     @Published var checkControl:Bool = false
+    @Published var loginButtonColor = false
     
-    @Published var checkEmail:Bool = false
     
     
     @Published var emailPrompt:String = "hata"
@@ -35,7 +42,57 @@ class LoginViewModel:ObservableObject {
         loginCheck()
     }
     
-    
+    func loginCheck() {
+        
+        $email
+            .debounce(for: .milliseconds(1000), scheduler: RunLoop.main)
+            .map { email in
+                email.isValidEmail || email == ""
+            }
+            .sink {[weak self] result in
+                guard let self = self else {return}
+                
+                
+                if !result{
+                    self.formMessage.emailFormMessage = "Geçersiz Mail"
+                }else{
+                    self.formMessage.emailFormMessage = ""
+                }
+                
+            }
+            .store(in: &cancellable)
+        $password.map { str -> Bool in
+            let check = (str.count >= 7 || str.isEmpty) ? true : false
+            return check
+        }
+        .sink { [weak self] result in
+            guard let self = self else {return}
+            if result{
+                self.formMessage.passwordFormMessage = ""
+            }else{
+                self.formMessage.passwordFormMessage = "Geçersiz Şifre"
+            }
+        }
+        .store(in: &cancellable)
+        
+        $email.combineLatest($password).map { (email,password)-> Bool in
+            let check = password.count >= 7 ? true : false
+            
+            if email.isValidEmail && check{
+                return true
+            }else{
+                return false
+            }
+            
+        }
+        .sink {[weak self] result in
+            guard let self = self else {return}
+            
+            self.checkControl = result
+        }
+        .store(in: &cancellable)
+        
+    }
     
     
     func login(){
@@ -68,44 +125,6 @@ class LoginViewModel:ObservableObject {
     }
    
     
-    func loginCheck() {
-        
-        $email
-            .debounce(for: .milliseconds(1000), scheduler: RunLoop.main)
-            .map { email in
-                email.isValidEmail || email == ""
-            }
-            .sink {[weak self] result in
-                guard let self = self else {return}
-                
-                if !result{
-                    self.emailPrompt = "Hatalı mail"
-                }else{
-                    self.emailPrompt = ""
-                }
-                self.checkEmail = result
-                
-            }
-            .store(in: &cancellable)
-        
-        
-        
-        $email.combineLatest($password).map { (email,password)-> Bool in
-            if  email.isValidEmail == true{
-                return true
-            }else{
-                return false
-            }
-            
-            
-        }
-        .sink {[weak self] result in
-            guard let self = self else {return}
-            
-            self.checkControl = result
-        }
-        .store(in: &cancellable)
-        
-    }
+   
     
 }

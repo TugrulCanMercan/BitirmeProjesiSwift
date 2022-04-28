@@ -9,13 +9,80 @@ import SwiftUI
 import TTComponents
 
 struct ContentView: View {
+    
+    @State var show:Bool = false
+    
+    @State var degre:CGFloat = .zero
     var body: some View {
+        
         VStack{
-            TTButton(text: "tugru", clicked: {
+            
+            
+      
+            
                 
-            }, color: .red)
+                Rectangle()
+                
+                    .frame(width: 200, height: 200, alignment: .center)
+                    .background(.red)
+                    .rotationEffect(.degrees(degre))
+                    .animation(.interpolatingSpring(stiffness: 5, damping: 2).speed(2),value: degre)
+                    .onAppear(perform: {
+                        withAnimation(.easeInOut(duration: 2)) {
+                            degre = 45
+                        }
+                        withAnimation {
+                            degre = .zero
+                        }
+                        
+                      
+                    })
+                    
+                    
+               
+                
+                
+                
+                
+                
+                
+            
+//            }else{
+//
+//                RoundedRectangle(cornerRadius: 10)
+//
+//                    .frame(width: 50, height: 50, alignment: .center)
+//                    .rotationEffect(.degrees(degre))
+//                    .onAppear {
+//                            let baseAnimation = Animation.easeInOut(duration: 1)
+////                        let repeated = baseAnimation.repeatForever(autoreverses: true)
+//
+//                        withAnimation(baseAnimation) {
+//                            degre = 45
+//                        }
+//
+//
+//                        withAnimation(.easeInOut.delay(0.5)) {
+//                                degre = .zero
+//                            }
+//
+//
+//                    }
+//
+//
+//
+//
+//            }
+            
+            
         }
-     
+        
+        
+        
+        
+        
+        
+        
     }
 }
 

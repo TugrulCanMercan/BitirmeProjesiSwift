@@ -1,0 +1,189 @@
+//
+//  ExamQuestionView.swift
+//  InterViewProject
+//
+//  Created by Tuğrul Can MERCAN (Dijital Kanallar Uygulama Geliştirme Müdürlüğü) on 26.04.2022.
+//
+
+import SwiftUI
+import TTComponents
+
+
+extension UnitPoint{
+    static var randomlyAnchor:Self{
+        let point:[UnitPoint] = [.topLeading,.bottomTrailing,.topTrailing,.bottomLeading]
+        let a = point.index(point.startIndex, offsetBy: Int.random(in: point.indices))
+        return point[a]
+    }
+    
+}
+
+struct CornerRotateModifier:ViewModifier{
+    let amount:Double
+    let anchor:UnitPoint
+    func body(content: Content) -> some View {
+        content
+            .rotationEffect(.degrees(amount),anchor: anchor)
+            .clipped()
+    }
+}
+extension AnyTransition{
+    static var pivot:Self{
+        .modifier(active: CornerRotateModifier(amount: -90, anchor: .topLeading), identity: CornerRotateModifier(amount: 0, anchor: .topLeading))
+    }
+}
+
+
+struct ExamQuestionView: View {
+    
+    @State var showPopUp:Bool = false
+    @State var show = false
+    @State var showAddQuestionDetail = false
+    @Namespace var animation
+    
+    var body: some View {
+        TTView(content: {
+            if !showAddQuestionDetail{
+                CustomNavView {
+                    VStack {
+                        
+                        HStack{
+                            Text("POPULER TEKNOLOJİLER")
+                                .font(.caption)
+                                .bold()
+                            Spacer()
+                        }
+                        .padding(8)
+                        .frame(maxWidth:.infinity)
+                        
+                        GeometryReader { proxy in
+                            ScrollView (.horizontal){
+                                
+                                LazyHStack {
+                                    ForEach(1...4,id:\.self) { _ in
+                                        VStack {
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(lineWidth: 4)
+                                            
+                                                .foregroundStyle(.linearGradient(colors: [.cyan,.purple,.yellow], startPoint: .randomlyAnchor, endPoint: .randomlyAnchor))
+                                                .padding(.vertical,4)
+                                                .padding(.horizontal,4)
+                                                .frame(width: proxy.size.width/1.25 - 15, height: proxy.size.height, alignment: .top)
+                                                .background {
+                                                    ZStack{
+                                                        VStack (alignment:.leading){
+                                                            Text("REDİS")
+                                                            Spacer()
+                                                        }
+                                                        .padding()
+                                                    }
+                                                    
+                                                }
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                        }
+                        
+                        .frame(maxWidth:.infinity)
+                        .frame(maxHeight:UIScreen.main.bounds.height / 4)
+                        
+                        
+                        VStack{
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .strokeBorder(lineWidth: 5, antialiased: true)
+                                .foregroundColor(.indigo)
+                                .overlay {
+                                    ZStack{
+                                        HStack{
+                                            Text("SORU OLUŞTUR")
+                                                .font(.title)
+                                            Image(systemName: "plus")
+                                                .padding(8)
+                                                .background(Circle().stroke())
+                                        }
+                                        
+                                        
+                                    }
+                                }
+                            
+                            
+                                .onTapGesture {
+                                    withAnimation {
+                                        show.toggle()
+                                    }
+                                }
+                            
+                            
+                            
+                            
+                            
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .strokeBorder(lineWidth: 5, antialiased: true)
+                                .foregroundColor(.cyan)
+                                .overlay {
+                                    ZStack{
+                                        HStack{
+                                            Text("SINAV OLUŞTUR")
+                                                .font(.title)
+                                            
+                                            Image(systemName: "plus")
+                                                .padding(8)
+                                                .background(Circle().stroke())
+                                        }
+                                        
+                                    }
+                                }
+                        }
+                       
+                        .onTapGesture {
+                            withAnimation {
+                                showAddQuestionDetail.toggle()
+                            }
+                        }
+                        
+                        .frame(maxHeight:.infinity)
+                        .padding()
+                        
+                        
+                        
+                    }
+                    .matchedGeometryEffect(id: "animation", in: animation)
+                    .customNavBarItems(title: "Soru ve Sınav", subtitle: "", backButtonHidden: true, color: .cyan, rightItemShow: false) {
+                        VStack{
+                            
+                        }
+                    }
+                    
+                    
+                }
+            }
+            else{
+                AddQuestionDetailView()
+                
+                    .matchedGeometryEffect(id: "animation", in: animation)
+            }
+            
+        }, popUpContent: {
+            VStack {
+                
+            }
+        }, showActivate: $showPopUp)
+        
+    }
+    
+}
+
+struct ExamQuestionView_Previews: PreviewProvider {
+    static var previews: some View {
+        ExamQuestionView()
+    }
+}
+
+
+

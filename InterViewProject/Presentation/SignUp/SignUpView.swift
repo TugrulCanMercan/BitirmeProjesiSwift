@@ -17,13 +17,19 @@ struct SingUpView: View {
         ZStack{
             VStack{
                 
-                TTTextField(text: $VM.name, placeHolder: "Kullanıcı adı")
                 
-                TTTextField(text: $VM.surname, placeHolder: "Kullanıcı soyadı")
                 
-                TTTextField(text: $VM.email, placeHolder: "Mail Adresi")
                 
-                TTTextField(text: $VM.passwrod, placeHolder: "Şifre")
+                TTTextField(placeHolder: "Kullanıcı adı",errorhanlde:VM.formSignUpMessage.nameMessage,text: $VM.name)
+                    
+                    
+
+                TTTextField(placeHolder: "Kullanıcı soyadı",errorhanlde: VM.formSignUpMessage.surname,text: $VM.surname)
+                
+                TTTextField(placeHolder: "Mail Adresi",errorhanlde: VM.formSignUpMessage.email,text: $VM.email)
+                
+                TTTextField(placeHolder: "Şifre",errorhanlde: VM.formSignUpMessage.password,text: $VM.password)
+
                 
               
                
@@ -40,6 +46,7 @@ struct SingUpView: View {
 
                 
             }
+            .padding(.horizontal,6)
             if VM.showError {
                 Color.black.opacity(0.8)
                 VStack{

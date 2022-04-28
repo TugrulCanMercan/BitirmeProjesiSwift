@@ -1,68 +1,124 @@
 //
-//  LoginTextField.swift
-//  BitirmeProjesi
+//  CustomTextField.swift
+//  TTComponents
 //
-//  Created by Tuğrulcan on 8.04.2022.
+//  Created by Tuğrul Can MERCAN (Dijital Kanallar Uygulama Geliştirme Müdürlüğü) on 21.04.2022.
 //
 
 import SwiftUI
+import Combine
+
+class viewModel:ObservableObject{
+    
+    @Published var error:String = ""
+    @Published var text = ""
+    var cancellable = Set<AnyCancellable>()
+    init(){
+        $text
+            .receive(on: DispatchQueue.main)
+            .sink { str in
+                if str.count == 5{
+                    
+                        self.error = "hata geldi"
+                    
+                       
+                    
+                 
+                }else{
+                    
+                        self.error = ""
+                    
+                
+                }
+            }
+            .store(in: &cancellable)
+    }
+    
+}
+struct viewCanvas:View{
+    @StateObject var vm = viewModel()
+    var body: some View{
+        VStack{
+            TTTextField(placeHolder: "place", errorhanlde: vm.error, text: $vm.text)
+            Button("ds") {
+              
+                    vm.error = "dsadsa"
+                
+                
+                
+              
+            }
+        }
+       
+    }
+
+}
+
 
 
 public struct TTTextField: View {
-    
-    @Binding var text:String
     @State var placeHolder:String
-    var prompt:String
-    @State private var promtOffset:CGPoint
-    public init(text:Binding<String>,
-                placeHolder:String,
-                promtOffset:CGPoint = .init(x: -(UIScreen.main.bounds.width/3), y: -35),
-                prompt:String = ""
-    ) {
-        self.prompt = prompt
+    var errorhanlde:String
+    @Binding var text:String
+    public init(
+        placeHolder:String,
+        errorhanlde:String = "",
+        text:Binding<String>
+    ){
         self._text = text
+        self.errorhanlde = errorhanlde
         self.placeHolder = placeHolder
-        self.promtOffset = promtOffset
     }
+    
+    
     public var body: some View {
         
-        VStack(alignment:.leading){
-            TextField(placeHolder, text: $text)
-                .modifier(TTTextFieldModifier(text: $text))
-                .overlay {
-                    Text(prompt)
-                        .foregroundColor(Color.red)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .offset(x: promtOffset.x, y: promtOffset.y)
-//                        .onAppear {
-//                            withAnimation {
-//                                if !prompt.isEmpty{
-//                                    promtOffset = CGPoint(x: -(UIScreen.main.bounds.width/3), y: -35)
-//                                }
-//                            }
-//                        }
-                }
-           
-        }
-       
-
         
+        
+        
+        VStack(alignment:.leading){
+            GeometryReader{geo in
+                VStack(alignment:.leading){
+                    
+                    VStack{
+                        if !errorhanlde.isEmpty{
+                            Text(errorhanlde)
+                                .foregroundColor(.red)
+                                .font(.caption)
+                                .offset(x: 10, y: 0)
+                                .transition( .offset(x: 0, y: 50).combined(with: .opacity))
+                                .frame(height:20)
+                        }else{
+                            Color.clear
+                                .frame(height:20)
+                                
+                        }
+                    }
+                    .animation(.easeOut, value: errorhanlde)
+                    TextField(placeHolder, text: $text)
+                        .modifier(TTTextFieldModifier(text: $text))
+                    
+                }
+
+            }
+
+        }
+
+        .frame(height: 75)
         
         
     }
-    
-    
 }
 
 
 
 
-struct LoginTextField_Previews: PreviewProvider {
-    @State static var mcok:String = "fdfd"
-    static var hata:String = "hata"
+struct CustomTextField_Previews: PreviewProvider {
+    
+    
     static var previews: some View {
-        
-            TTTextField(text: $mcok, placeHolder: "deneme", prompt: hata)
+        viewCanvas()
+            
         
     }
 }

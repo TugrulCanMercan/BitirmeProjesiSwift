@@ -60,6 +60,8 @@ struct CustomNavigationBarRightItemPreferenceKey: PreferenceKey {
 
 
 extension View {
+    
+   
         
     public func customNavigationTitle(_ title: String) -> some View {
         preference(key: CustomNavBarTitlePreferenceKey.self, value: title)
