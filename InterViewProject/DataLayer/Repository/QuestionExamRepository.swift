@@ -17,20 +17,20 @@ final class QuestionExamRepository{
 }
 
 
-extension QuestionExamRepository:QuestionExamRepositoryProtocol{
-    func addQuestion(question: Question, completionHandler: @escaping (Result<Question, Error>) -> Void) {
-        
-        let endpoint = 
-        networkService.request(with: <#T##ResponseRequestable#>, completion: <#T##(Result<Decodable, DataTransferError>) -> Void#>)
-    }
-    
-    func addExam(question: Question, completionHandler: @escaping (Result<Question, Error>) -> Void) {
-        <#code#>
-    }
-    
-    func getCategoryList(categoryList: [String], completionHandler: @escaping (Result<Question, Error>) -> Void) {
-        <#code#>
-    }
-    
-    
-}
+//extension QuestionExamRepository:QuestionExamRepositoryProtocol{
+//    func addQuestion(question: Question, completionHandler: @escaping (Result<Question, Error>) -> Void) {
+//        
+////        let endpoint = 
+////        networkService.request(with: <#T##ResponseRequestable#>, completion: <#T##(Result<Decodable, DataTransferError>) -> Void#>)
+//    }
+//    
+//    func addExam(question: Question, completionHandler: @escaping (Result<Question, Error>) -> Void) {
+//        
+//    }
+//    
+//    func getCategoryList(categoryList: [String], completionHandler: @escaping (Result<Question, Error>) -> Void) {
+//        
+//    }
+//    
+//    
+//}

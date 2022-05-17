@@ -1,5 +1,6 @@
 
 import Foundation
+import Combine
 
 
 public enum DataTransferError: Error {
@@ -7,6 +8,22 @@ public enum DataTransferError: Error {
     case parsing(Error)
     case networkFailure(NetworkError)
     case resolvedNetworkFailure(Error)
+    
+    static func convertError(error:Error)->DataTransferError{
+
+        switch error {
+
+        case is DataTransferError:
+            return .parsing(error)
+
+        case is NetworkError:
+            return .networkFailure(error as! NetworkError)
+
+        default:
+            return .resolvedNetworkFailure(error)
+        }
+    }
+    
 }
 
 public protocol DataTransferService{
@@ -15,6 +32,8 @@ public protocol DataTransferService{
     @discardableResult
     func request<T: Decodable, E: ResponseRequestable>(with endpoint: E,
                                                        completion: @escaping CompletionHandler<T>) -> URLSessionTask? where E.Response == T
+    @discardableResult
+    func requestWithCombine<T: Decodable, E:ResponseRequestable>(with ednpoint: E) -> AnyPublisher<T,DataTransferError> where E.Response == T
 
 }
 
@@ -45,6 +64,26 @@ public final class DefaultDataTransferService {
 }
 
 extension DefaultDataTransferService: DataTransferService {
+    public func requestWithCombine<T, E>(with ednpoint: E) -> AnyPublisher<T, DataTransferError> where T : Decodable, E : ResponseRequestable {
+        
+        return self.networkService.requestWithCombine(endpoint: ednpoint)
+            
+            .compactMap({ data in
+                return data
+            })
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError({ networkError in
+                return DataTransferError.convertError(error: networkError)
+            })
+            .eraseToAnyPublisher()
+            
+            
+            
+            
+           
+            
+    }
+    
     
     public func request<T: Decodable, E: ResponseRequestable>(with endpoint: E,
                                                               completion: @escaping CompletionHandler<T>) -> URLSessionTask? where E.Response == T {

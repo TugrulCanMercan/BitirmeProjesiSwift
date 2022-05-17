@@ -2,7 +2,7 @@
 
 
 import Foundation
-
+import Combine
 
 public enum NetworkError: Error {
     case error(statusCode: Int, data: Data?)
@@ -10,11 +10,30 @@ public enum NetworkError: Error {
     case cancelled
     case generic(Error)
     case urlGeneration
+    case url(URLError?)
+    
+    static func convertError(error:Error)->NetworkError{
+        
+        switch error {
+        
+        case is URLError:
+            return .url((error as? URLError))
+            
+        case is NetworkError:
+            return error as! NetworkError
+       
+        default:
+            return .generic(error)
+        }
+    }
 }
 public protocol NetworkService {
     typealias CompletionHandler = (Result<Data?, NetworkError>) -> Void
     
+    
     func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> URLSessionTask?
+    
+    func requestWithCombine(endpoint: Requestable) -> AnyPublisher<Data?,NetworkError>
 }
 
 public protocol NetworkSessionManager {
@@ -71,6 +90,24 @@ public final class DefaultNetworkService {
         return sessionDataTask
     }
     
+    private func requestWithCombine(request: URLRequest) -> AnyPublisher<Data?,NetworkError>{
+        return URLSession.shared.dataTaskPublisher(for: request)
+            
+            .tryMap({ (data: Data, response: URLResponse) in
+                            guard let response = response as? HTTPURLResponse, response.statusCode >= 200 && response.statusCode < 300 else{
+                                
+                                throw NetworkError.url(URLError(.badServerResponse))
+                        }
+                return data
+            })
+          
+            .mapError({ error in
+                NetworkError.convertError(error: error)
+            })
+            .eraseToAnyPublisher()
+    }
+    
+    
     private func resolve(error: Error) -> NetworkError {
         let code = URLError.Code(rawValue: (error as NSError).code)
         switch code {
@@ -82,6 +119,17 @@ public final class DefaultNetworkService {
 }
 
 extension DefaultNetworkService: NetworkService {
+    public func requestWithCombine(endpoint: Requestable) -> AnyPublisher<Data?, NetworkError> {
+        do {
+            let urlRequest = try endpoint.urlRequest(with: config)
+            return requestWithCombine(request: urlRequest)
+        } catch  {
+            return AnyPublisher(Fail(error: .urlGeneration))
+            
+        }
+        
+    }
+    
     
     public func request(endpoint: Requestable, completion: @escaping CompletionHandler) -> URLSessionTask? {
         do {

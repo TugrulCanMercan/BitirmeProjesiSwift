@@ -1,18 +1,17 @@
 //
-//  AddQuestionViewModel.swift
+//  ExamAddViewModel.swift
 //  InterViewProject
 //
-//  Created by Tuğrul Can MERCAN (Dijital Kanallar Uygulama Geliştirme Müdürlüğü) on 28.04.2022.
+//  Created by Tuğrul Can MERCAN (Dijital Kanallar Uygulama Geliştirme Müdürlüğü) on 14.05.2022.
 //
 
 import Foundation
+
 import Combine
-import SwiftUI
 
-
-class AddQuestionViewModel:ObservableObject{
-    /// Beckend ten gelecek
-    @Published var category:[String] = ["Swift","TypeScript"] 
+class ExamQuestionViewModel:ObservableObject{
+    
+    @Published var category:[String] = ["Swift","TypeScript"]
     @Published var selectedPickere:String = ""
     @Published var questionContent:String = ""
     @Published var quesitons:[String] = []
@@ -30,12 +29,6 @@ class AddQuestionViewModel:ObservableObject{
     
     init(){
         
-       
-        
-        questionAllSatisfy()
-    }
-    
-    func questionAllSatisfy(){
         $quesitons
             .map({ val -> Bool in
                 
@@ -55,6 +48,8 @@ class AddQuestionViewModel:ObservableObject{
                 self.saveButtonDisabled = val
            
         }.store(in: &cancellable)
+        
+        
     }
     
     func examAddQuestion(){

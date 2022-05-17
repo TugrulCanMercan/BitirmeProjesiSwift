@@ -7,13 +7,14 @@
 
 import Foundation
 import Infrastructure
-
+import Combine
 
 class AuthRepository{
     let networkService:DataTransferService
-    
+    var cancellable = Set<AnyCancellable>()
     init(networkService:DataTransferService){
         self.networkService = networkService
+        
     }
     
     
@@ -21,6 +22,20 @@ class AuthRepository{
 }
 
 extension AuthRepository:AuthRepositoryProtocol{
+    func denem(){
+        let endpoint = APIEndpoints.getUser()
+        networkService.requestWithCombine(with: endpoint)
+            .receive(on: DispatchQueue.main)
+            .sink { err in
+                print(err)
+            } receiveValue: { res in
+                print(res)
+            }
+            .store(in: &cancellable)
+
+
+    }
+    
     func login(userLoginInformation: UserLoginEtity, completionHandler: @escaping (Result<UserAccessToken, Error>) -> Void) {
         let endpoint = APIEndpoints.loginUser(userLoginDto: UserLoginRequestDTO(email: userLoginInformation.email,
                                                                                 password: userLoginInformation.password))

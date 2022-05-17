@@ -20,6 +20,7 @@ final class GetUserUseCase{
     
     init(userRepo:UserRepositoryProtocol){
         self.userRepo = userRepo
+        
     }
     
     

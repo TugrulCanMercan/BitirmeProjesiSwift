@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct Question{
+struct Question:Hashable{
     
+    
+    var selectedPickere:String
     var questionContent:String
     var questionOptions:[String:String]
     var questionAnswer:String

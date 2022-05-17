@@ -18,6 +18,7 @@ final class LoginUseCase{
     
     init(authRepo:AuthRepositoryProtocol){
         self.authRepo = authRepo
+        authRepo.denem()
     }
     
     

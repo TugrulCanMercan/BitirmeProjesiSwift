@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import Combine
 import Infrastructure
 
 final class UserRepository{
     
     let networkService:DataTransferService
-    
+    var cancellable = Set<AnyCancellable>()
     init(networkService:DataTransferService){
         self.networkService = networkService
+        
     }
+   
     
 }
 
@@ -31,6 +34,7 @@ extension UserRepository:UserRepositoryProtocol{
             }
         }
     }
+    
     
    
 

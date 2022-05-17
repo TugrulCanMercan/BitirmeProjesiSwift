@@ -73,6 +73,8 @@
 		E4A22120281055F7000C3510 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2211F281055F7000C3510 /* SignUpViewModel.swift */; };
 		E4A2212228105A75000C3510 /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A2212128105A75000C3510 /* SignUpUseCase.swift */; };
 		E4A761C82812F09500446DA4 /* TTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A761C72812F09500446DA4 /* TTView.swift */; };
+		E4B00219282E71C6001E8537 /* ExamAddDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B00218282E71C6001E8537 /* ExamAddDetail.swift */; };
+		E4B071A1282E3C8100832B3B /* KSSnapCrouselEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B071A0282E3C8100832B3B /* KSSnapCrouselEffect.swift */; };
 		E4C209FE281AC5C70036F91E /* AddQuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C209FD281AC5C70036F91E /* AddQuestionDetailView.swift */; };
 		E4C20A00281AC82A0036F91E /* TTPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C209FF281AC82A0036F91E /* TTPopUp.swift */; };
 		E4C20A02281AC9150036F91E /* TTPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A01281AC9150036F91E /* TTPicker.swift */; };
@@ -81,6 +83,7 @@
 		E4C20A09281B5C180036F91E /* QuestionAndExamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A08281B5C180036F91E /* QuestionAndExamUseCase.swift */; };
 		E4C20A0B281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A0A281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift */; };
 		E4C20A0D281B5DDE0036F91E /* QuestionExamRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C20A0C281B5DDE0036F91E /* QuestionExamRepository.swift */; };
+		E4CACD73282FCFFA004322EF /* ExamAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CACD72282FCFFA004322EF /* ExamAddViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +183,8 @@
 		E4A2211F281055F7000C3510 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		E4A2212128105A75000C3510 /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
 		E4A761C72812F09500446DA4 /* TTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTView.swift; sourceTree = "<group>"; };
+		E4B00218282E71C6001E8537 /* ExamAddDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamAddDetail.swift; sourceTree = "<group>"; };
+		E4B071A0282E3C8100832B3B /* KSSnapCrouselEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSSnapCrouselEffect.swift; sourceTree = "<group>"; };
 		E4C209FD281AC5C70036F91E /* AddQuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionDetailView.swift; sourceTree = "<group>"; };
 		E4C209FF281AC82A0036F91E /* TTPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPopUp.swift; sourceTree = "<group>"; };
 		E4C20A01281AC9150036F91E /* TTPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTPicker.swift; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 		E4C20A08281B5C180036F91E /* QuestionAndExamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAndExamUseCase.swift; sourceTree = "<group>"; };
 		E4C20A0A281B5CB20036F91E /* QuestionExamRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionExamRepositoryProtocol.swift; sourceTree = "<group>"; };
 		E4C20A0C281B5DDE0036F91E /* QuestionExamRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionExamRepository.swift; sourceTree = "<group>"; };
+		E4CACD72282FCFFA004322EF /* ExamAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamAddViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +269,7 @@
 		E40803DC280EFA49004A2537 /* TTComponents */ = {
 			isa = PBXGroup;
 			children = (
+				E4B0719F282E3C0F00832B3B /* KSComponents */,
 				E40803EC280EFAE1004A2537 /* TTSubComponents */,
 				E40803EB280EFAB3004A2537 /* TTCoreComponents */,
 				E40803DD280EFA49004A2537 /* TTComponents.h */,
@@ -527,6 +534,7 @@
 		E424004528187A43001FABAD /* CreateExamQuestion */ = {
 			isa = PBXGroup;
 			children = (
+				E4B00217282E71A1001E8537 /* ExamAddDetail */,
 				E4C20A03281AF0BD0036F91E /* QuestionAddDetail */,
 				E424004628187A90001FABAD /* ExamQuestionView.swift */,
 			);
@@ -557,6 +565,23 @@
 				E4C20A01281AC9150036F91E /* TTPicker.swift */,
 			);
 			path = TTView;
+			sourceTree = "<group>";
+		};
+		E4B00217282E71A1001E8537 /* ExamAddDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E4B00218282E71C6001E8537 /* ExamAddDetail.swift */,
+				E4CACD72282FCFFA004322EF /* ExamAddViewModel.swift */,
+			);
+			path = ExamAddDetail;
+			sourceTree = "<group>";
+		};
+		E4B0719F282E3C0F00832B3B /* KSComponents */ = {
+			isa = PBXGroup;
+			children = (
+				E4B071A0282E3C8100832B3B /* KSSnapCrouselEffect.swift */,
+			);
+			path = KSComponents;
 			sourceTree = "<group>";
 		};
 		E4C20A03281AF0BD0036F91E /* QuestionAddDetail */ = {
@@ -739,6 +764,7 @@
 				E424004728187A90001FABAD /* ExamQuestionView.swift in Sources */,
 				E408044C280EFE0E004A2537 /* UserResponseDTO.swift in Sources */,
 				E4A22112280FEFF4000C3510 /* String+Extension.swift in Sources */,
+				E4CACD73282FCFFA004322EF /* ExamAddViewModel.swift in Sources */,
 				E4A2211A281040C3000C3510 /* UserInformationDTO.swift in Sources */,
 				E4C209FE281AC5C70036F91E /* AddQuestionDetailView.swift in Sources */,
 				E4080420280EFCB3004A2537 /* LoginViewModel.swift in Sources */,
@@ -751,6 +777,7 @@
 				E4C20A09281B5C180036F91E /* QuestionAndExamUseCase.swift in Sources */,
 				E4080446280EFE04004A2537 /* UUIDRequestDTO.swift in Sources */,
 				E4A2211628102B4F000C3510 /* UserRepositoryProtocol.swift in Sources */,
+				E4B00219282E71C6001E8537 /* ExamAddDetail.swift in Sources */,
 				E4A22120281055F7000C3510 /* SignUpViewModel.swift in Sources */,
 				E4080436280EFD7B004A2537 /* UserLoginEntity.swift in Sources */,
 				E4080428280EFD01004A2537 /* PromotionSectionView.swift in Sources */,
@@ -777,6 +804,7 @@
 				E40803F8280EFB6B004A2537 /* TabBarItem.swift in Sources */,
 				E4080413280EFBF4004A2537 /* TTPromotionBar.swift in Sources */,
 				E4080405280EFB85004A2537 /* NavBarRightItem.swift in Sources */,
+				E4B071A1282E3C8100832B3B /* KSSnapCrouselEffect.swift in Sources */,
 				E48B987B2811785400392AA4 /* TTTextField.swift in Sources */,
 				E4080414280EFBF4004A2537 /* TTLabelledDivider.swift in Sources */,
 				E4080404280EFB85004A2537 /* CustomNavLink.swift in Sources */,

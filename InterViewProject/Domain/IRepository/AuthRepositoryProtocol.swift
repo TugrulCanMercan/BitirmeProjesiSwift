@@ -15,7 +15,7 @@ protocol AuthRepositoryProtocol{
     
     func signUp(userSignUpInformation:UserSignUpEntity,completionHandler:  @escaping (Result<ResponseMessage, Error>) -> Void)
     
-    
+    func denem()
     
 }
 
