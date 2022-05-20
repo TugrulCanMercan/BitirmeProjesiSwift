@@ -76,7 +76,7 @@ struct ExamAddDetail: View {
                                     showingSheet.toggle()
                                 }
                                 .sheet(isPresented: $showingSheet) {
-                                    ExamSaveView()
+                                    ExamSaveView(vm: VM)
                                 }
                             }
                             .padding(.horizontal)

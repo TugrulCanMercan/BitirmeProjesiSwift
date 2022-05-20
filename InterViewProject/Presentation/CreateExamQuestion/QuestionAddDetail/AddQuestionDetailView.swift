@@ -47,14 +47,14 @@ struct AddQuestionDetailView: View {
     
     @State private var titleOffset = CGFloat.zero
     @State var examOrQuestion :Bool
-
+    
     
     init(examOrQuestion :Bool,
          currentShowedView:Binding<Selection>,
          VM: AddQuestionViewModel
          
          
-    
+         
     ){
         self.examOrQuestion = examOrQuestion
         self._currentShowedView = currentShowedView
@@ -64,42 +64,42 @@ struct AddQuestionDetailView: View {
     var body: some View {
         
         
-            ZStack{
-                QuestionView(questionContent: $VM.questionContent)
-                    .environmentObject(VM)
-//                if(examOrQuestion){
-//                    Button {
-//                        VM.getCategory()
-//                    } label: {
-//                        Text("Kaydet")
-//                            .frame(height: 50)
-//                        
-//                    }
-//                    .disabled(VM.saveButtonDisabled)
-//                }else{
-//                    Button {
-//                        VM.examAddQuestion()
-//                        
-//                    } label: {
-//                        Text("Ekle")
-//                            .frame(height: 50)
-//                    }
-//                }
-
-                if VM.showPicker{
-                    picker()
-                }     
-            }
-            .background(Color(UIColor.systemGray6))
+        ZStack{
+            QuestionView(questionContent: $VM.ttQuestion.questionContent)
+                .environmentObject(VM)
+            //                if(examOrQuestion){
+            //                    Button {
+            //                        VM.getCategory()
+            //                    } label: {
+            //                        Text("Kaydet")
+            //                            .frame(height: 50)
+            //
+            //                    }
+            //                    .disabled(VM.saveButtonDisabled)
+            //                }else{
+            //                    Button {
+            //                        VM.examAddQuestion()
+            //
+            //                    } label: {
+            //                        Text("Ekle")
+            //                            .frame(height: 50)
+            //                    }
+            //                }
             
+            if VM.showPicker{
+                picker()
+            }
+        }
+        .background(Color(UIColor.systemGray6))
+        
     }
     
     func picker() -> some View {
         TTPicker(backGroundColor: .secondary, content: {
-            ForEach(VM.category,id:\.self) { itm in
+            ForEach(VM.ttQuestion.category,id:\.self) { itm in
                 Text(itm)
             }
-        }, select: $VM.selectedPickere)
+        }, select: $VM.ttQuestion.selectedPicker)
         .onTapGesture {
             withAnimation {
                 VM.showPicker.toggle()
@@ -117,7 +117,7 @@ struct AddQuestionDetailView: View {
 struct AddQuestionDetail_Previews: PreviewProvider {
     static var previews: some View {
         AddQuestionDetailView(examOrQuestion: false, currentShowedView: .constant(.showAddQuestionDetail), VM: AddQuestionViewModel())
-            
+        
     }
 }
 
@@ -149,9 +149,9 @@ struct QuestionContentSection: View {
     @EnvironmentObject var VM:AddQuestionViewModel
     var body: some View {
         Section {
-            TextEditor(text: $questionContent)
+            TextEditor(text: $VM.ttQuestion.questionContent)
                 .onChange(of: questionContent, perform: { newValue in
-                    VM.questionContent = newValue
+                    VM.ttQuestion.questionContent = newValue
                 })
             
         } header: {
@@ -175,8 +175,8 @@ struct QuestionSelectionSection: View {
                 .font(.callout)
             
             Button {
-                if VM.quesitons.count < 5 {
-                    VM.quesitons.append("")
+                if VM.ttQuestion.quesitons.count < 5 {
+                    VM.questions.append("")
                 }
             } label: {
                 HStack{
@@ -190,29 +190,49 @@ struct QuestionSelectionSection: View {
     
     @ViewBuilder
     func questionList() -> some View{
-        ForEach(VM.quesitons.indices,id:\.self) { val in
-            if val <= 4{
+        
+        ForEach(VM.questions.indices,id:\.self) { val in
+            if (val <= 4) {
                 VStack{
                     HStack{
-                        
                         Text("\(QuestionOptions.options(val).result)) Şıkkı")
-                            .foregroundColor(VM.questionAnswer == QuestionOptions.options(val).result ? .blue : .black)
+                            .foregroundColor(VM.ttQuestion.questionAnswer == QuestionOptions.options(val).result ? .blue : .black)
                             .onTapGesture {
-                                VM.questionAnswer = QuestionOptions.options(val).result
+                                VM.ttQuestion.questionAnswer = QuestionOptions.options(val).result
                             }
-                        TextEditor(text: $VM.quesitons[val])
-                        //                            TextField("\(QuestionOptions.options(val).result) şıkkını oluşturun" , text:  $VM.quesitons[val])
                         
+                        TextEditor(text:  $VM.questions[val])
                     }
                 }
-                
             }
         }
         .onDelete(perform: delete)
+        
+        //        ForEach(0...VM.questions.count,id:\.self) { val in
+        //                    if val <= 4{
+        //                        VStack{
+        //                            HStack{
+        //
+        //                                Text("\(QuestionOptions.options(val).result)) Şıkkı")
+        //                                    .foregroundColor(VM.questionAnswer == QuestionOptions.options(val).result ? .blue : .black)
+        //                                    .onTapGesture {
+        //                                        VM.questionAnswer = QuestionOptions.options(val).result
+        //                                    }
+        //                                TextEditor(text: $VM.questions[val])
+        //                                //                            TextField("\(QuestionOptions.options(val).result) şıkkını oluşturun" , text:  $VM.quesitons[val])
+        //
+        //                            }
+        //                        }
+        //
+        //                    }
+        //                }
+        //                .onDelete(perform: delete)
+        
+        
     }
     // BU VİEW MODELDE OLACAK
     func delete(at offsets: IndexSet) {
-        VM.quesitons.remove(atOffsets: offsets)
+        VM.questions.remove(atOffsets: offsets)
     }
 }
 
@@ -226,12 +246,12 @@ struct QuestionView: View {
             
             List{
                 
-                CategorySection(showPicker: $VM.showPicker, selectedPickerName: VM.selectedPickere)
+                CategorySection(showPicker: $VM.showPicker, selectedPickerName: VM.ttQuestion.selectedPicker)
                 
                 QuestionContentSection(questionContent: $questionContent)
-                    
+                
                 QuestionSelectionSection()
-                    
+                
             }
         }
     }

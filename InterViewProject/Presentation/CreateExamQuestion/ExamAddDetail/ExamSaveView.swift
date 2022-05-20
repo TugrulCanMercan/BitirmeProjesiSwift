@@ -28,7 +28,7 @@ struct ExamSaveView: View {
                     }
                     
                     Button {
-                        
+                        vm.addDraftList()
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke()
@@ -59,6 +59,6 @@ struct ExamSaveView: View {
 
 struct ExamSaveView_Previews: PreviewProvider {
     static var previews: some View {
-        ExamSaveView()
+        ExamSaveView(vm: ExamQuestionViewModel())
     }
 }

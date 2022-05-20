@@ -15,7 +15,7 @@ class ExamQuestionViewModel:ObservableObject{
     @Published var examName:String = ""
     var cancellable = Set<AnyCancellable>()
     
-  
+    var allQuestion:[TTQuestion] = []
     
     init(){
         
@@ -31,9 +31,18 @@ class ExamQuestionViewModel:ObservableObject{
     }
     
     func addDraftList() {
-        questionList.map { vm in
-            
+        $questionList.map { vmList -> [TTQuestion] in
+            let qList = vmList.map { vm in
+                return vm.ttQuestion
+            }
+            return qList
         }
+        .sink { [weak self] list in
+            guard let self = self else { return }
+            self.allQuestion = list
+        }
+        .store(in: &cancellable)
+    
     }
     
 }
