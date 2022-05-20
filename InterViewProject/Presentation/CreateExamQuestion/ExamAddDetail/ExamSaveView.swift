@@ -28,6 +28,13 @@ struct ExamSaveView: View {
                     }
                     
                     Button {
+                        vm.getExam()
+                    } label: {
+                        Text("neler oluyor")
+                    }
+
+                    
+                    Button {
                         vm.addDraftList()
                     } label: {
                         RoundedRectangle(cornerRadius: 10)

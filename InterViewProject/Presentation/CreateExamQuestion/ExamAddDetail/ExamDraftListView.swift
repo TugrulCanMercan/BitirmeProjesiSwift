@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ExamDraftListView: View {
+    
+    @ObservedObject var vm: ExamQuestionViewModel
     var body: some View {
         List{
-            ForEach(1...3,id:\.self) { _ in
-                Text("ads")
+            ForEach(vm.entity,id:\.self) { result in
+                Text(result.examName ?? "boş")
             }
         }
     }
@@ -19,6 +21,6 @@ struct ExamDraftListView: View {
 
 struct ExamDraftList_Previews: PreviewProvider {
     static var previews: some View {
-        ExamDraftListView()
+        ExamDraftListView(vm: ExamQuestionViewModel())
     }
 }

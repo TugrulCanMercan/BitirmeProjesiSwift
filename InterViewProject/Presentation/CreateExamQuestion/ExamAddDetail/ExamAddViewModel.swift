@@ -16,7 +16,9 @@ class ExamQuestionViewModel:ObservableObject{
     var cancellable = Set<AnyCancellable>()
     
     var allQuestion:[TTQuestion] = []
+    @Published var entity:[ExamEntity] = []
     
+    var persistant = ExamDraftListRepository()
     init(){
         
        
@@ -39,10 +41,22 @@ class ExamQuestionViewModel:ObservableObject{
         }
         .sink { [weak self] list in
             guard let self = self else { return }
+            self.persistant.addExam(questionList: list)
             self.allQuestion = list
         }
         .store(in: &cancellable)
     
+    }
+    
+    func getExam() {
+        entity = self.persistant.fetchExam()
+        entity.forEach{ exam in
+            if let entit = exam.questions?.allObjects as? [QuestionEntity] {
+                entit.forEach { q in
+                    print(q.questionContent)
+                }
+            }
+        }
     }
     
 }
