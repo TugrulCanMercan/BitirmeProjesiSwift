@@ -111,7 +111,7 @@ struct ExamQuestionView: View {
                     }
                 }
             case .showAddQuestionDetail:
-                AddQuestionDetailView(examOrQuestion: true, currentShowedView: $selection, title: "Soru Oluşturma")
+                AddQuestionDetailView(examOrQuestion: true, currentShowedView: $selection, VM: AddQuestionViewModel())
                 
 
                     .matchedGeometryEffect(id: "animation", in: animation)

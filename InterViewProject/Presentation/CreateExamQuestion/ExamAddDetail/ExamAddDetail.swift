@@ -20,37 +20,103 @@ struct ExamAddDetail: View {
     
     @Binding var currentShowedView:Selection
     
-    @StateObject var VM = AddQuestionViewModel()
+    @StateObject var VM = ExamQuestionViewModel()
     @State var show = true
-    @State var index = 1
+    @State var index:Int = 0
+    
+    @State var showingSheet = false
     var body: some View {
-        
-        TabView(selection: $index) {
+        VStack{
             
             
-            ForEach(1...VM.questionList.count,id:\.self) { val in
-                AddQuestionDetailView(examOrQuestion: false, currentShowedView: $currentShowedView, title: "Soru Oluşturma \(val)")
-                    .tag(val)
-                    .environmentObject(VM)
+            
+            if VM.questionList.isEmpty{
+                VStack{
+                    Text("Sınav Oluştruma")
+                        .font(.largeTitle)
+                        .padding(.vertical)
+                    Spacer()
+                    GeometryReader { proxy in
+                        VStack{
+                            TextField("Sınav Adı Giriniz", text: $VM.examName)
+                                .background(
+                                    Divider()
+                                        .offset( y: 20)
+                                )
+                                .padding(.bottom)
+                        }
+                        .frame(height: proxy.size.height / 3)
+                    }
+                    
+                    
+                    Spacer()
+                    Button {
+                        VM.examAddQuestion()
+                    } label: {
+                        Text("Soru Eklemeye Başla")
+                            .font(.title2)
+                            .foregroundColor(.black)
+                    }
+                    .padding(.vertical)
+                }
+                .padding()
                 
-                    .onChange(of: VM.questionList, perform: { newValue in
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
-                            withAnimation (.easeIn(duration: 50)){
-                                index = newValue.count
+                
+            }else{
+                TabView(selection: $index) {
+                    
+                    
+                    
+                    ForEach(Array(VM.questionList.enumerated()),id:\.offset) { (idx,vm) in
+                        VStack(spacing:0){
+                            HStack{
+                                Text("Soru Numarası \(index)")
+                                Spacer()
+                                Button("Sınavı Kaydet") {
+                                    showingSheet.toggle()
+                                }
+                                .sheet(isPresented: $showingSheet) {
+                                    ExamSaveView()
+                                }
+                            }
+                            .padding(.horizontal)
+                            .padding(.top)
+                            .frame(maxWidth: .infinity)
+                         
+                            
+                            AddQuestionDetailView(examOrQuestion: false, currentShowedView: $currentShowedView, VM: vm)
+                                .tag(idx)
+                            Button {
+                                VM.examAddQuestion()
+                                
+                            } label: {
+                                Text("Soru Eklemeye Devam Et")
+                            }
+                            .padding()
+                        }
+                        .background(Color(UIColor.systemGray6))
+                        .onChange(of: VM.questionList) { newValue in
+                            withAnimation {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 ) {
+                                    withAnimation (.easeIn(duration: 50)){
+                                        index = newValue.endIndex - 1
+                                    }
+                                    
+                                }
+                                
                             }
                             
                         }
                         
-                    })
+                    }
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .ignoresSafeArea()
             }
-            
-            
-            
         }
         
-        .tabViewStyle(.page(indexDisplayMode: .never))
-        .ignoresSafeArea()   
+        
+        
     }
 }
 struct ViewOffsetKey: PreferenceKey {

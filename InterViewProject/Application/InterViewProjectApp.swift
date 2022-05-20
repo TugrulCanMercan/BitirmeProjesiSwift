@@ -17,7 +17,7 @@ struct InterViewProjectApp: App {
           
 //            LoginView()
             ExamQuestionView()
-            
+//            QuestionAddScene(viewModel: QuestionViewModel(), showActivate: .constant(false), questionContent: [], questionOptions: [:])
 //            Test2View()
         }
     }

@@ -11,7 +11,7 @@ import TTComponents
 
 
 
-enum QuestionOptions{
+enum QuestionOptions:Hashable{
     
     case options(Int)
     
@@ -39,10 +39,10 @@ enum QuestionOptions{
 struct AddQuestionDetailView: View {
     
     @Binding var currentShowedView:Selection
-    @State var show = false
-    @State var questionContent:String = ""
-    @State var title:String
-    @EnvironmentObject var VM: AddQuestionViewModel
+    
+    
+    
+    @ObservedObject var VM: AddQuestionViewModel
     @State private var offset = CGFloat.zero
     
     @State private var titleOffset = CGFloat.zero
@@ -51,67 +51,47 @@ struct AddQuestionDetailView: View {
     
     init(examOrQuestion :Bool,
          currentShowedView:Binding<Selection>,
-         title:String
+         VM: AddQuestionViewModel
+         
          
     
     ){
         self.examOrQuestion = examOrQuestion
         self._currentShowedView = currentShowedView
-        self.title = title
+        self._VM = .init(wrappedValue: VM)
         
     }
     var body: some View {
         
         
             ZStack{
-                VStack{
-                    HStack{
-                        Text(title)
-                            .font(.title)
-                            Spacer()
-                    }
-                    .padding(.top)
-                    .padding(.horizontal)
-                    
-                    
-                    List{
-                        
-                        CategorySection(show: $show, selectedPickerName: VM.selectedPickere)
-                               
-                            QuestionContentSection(questionContent: $questionContent)
-                                .environmentObject(VM)
-                            QuestionSelectionSection()
-                                .environmentObject(VM)
-                        
-                        
-                      
-                    }
-                    
-                    if(examOrQuestion){
-                        Button {
-                            VM.getCategory()
-                        } label: {
-                            Text("Kaydet")
-                                .frame(height: 50)
-                            
-                        }
-                        .disabled(VM.saveButtonDisabled)
-                    }else{
-                        Button {
-                            VM.examAddQuestion()
-                            
-                        } label: {
-                            Text("Ekle")
-                                .frame(height: 50)
-                        }
-                    }
-                }
-                if show{
+                QuestionView(questionContent: $VM.questionContent)
+                    .environmentObject(VM)
+//                if(examOrQuestion){
+//                    Button {
+//                        VM.getCategory()
+//                    } label: {
+//                        Text("Kaydet")
+//                            .frame(height: 50)
+//                        
+//                    }
+//                    .disabled(VM.saveButtonDisabled)
+//                }else{
+//                    Button {
+//                        VM.examAddQuestion()
+//                        
+//                    } label: {
+//                        Text("Ekle")
+//                            .frame(height: 50)
+//                    }
+//                }
+
+                if VM.showPicker{
                     picker()
                 }     
             }
             .background(Color(UIColor.systemGray6))
-            .navigationTitle(title)
+            
     }
     
     func picker() -> some View {
@@ -122,7 +102,7 @@ struct AddQuestionDetailView: View {
         }, select: $VM.selectedPickere)
         .onTapGesture {
             withAnimation {
-                show.toggle()
+                VM.showPicker.toggle()
             }
         }
     }
@@ -136,21 +116,21 @@ struct AddQuestionDetailView: View {
 
 struct AddQuestionDetail_Previews: PreviewProvider {
     static var previews: some View {
-        AddQuestionDetailView(examOrQuestion: false, currentShowedView: .constant(.showAddQuestionDetail), title: "" )
-            .environmentObject(AddQuestionViewModel())
+        AddQuestionDetailView(examOrQuestion: false, currentShowedView: .constant(.showAddQuestionDetail), VM: AddQuestionViewModel())
+            
     }
 }
 
 struct CategorySection: View {
     
-    @Binding var show:Bool
+    @Binding var showPicker:Bool
     let selectedPickerName:String
     
     var body: some View {
         Section {
             Button {
                 withAnimation {
-                    show.toggle()
+                    showPicker.toggle()
                 }
             } label: {
                 Text(selectedPickerName.isEmpty ? "Kategori" : selectedPickerName)
@@ -233,5 +213,26 @@ struct QuestionSelectionSection: View {
     // BU VİEW MODELDE OLACAK
     func delete(at offsets: IndexSet) {
         VM.quesitons.remove(atOffsets: offsets)
+    }
+}
+
+struct QuestionView: View {
+    @EnvironmentObject var VM:AddQuestionViewModel
+    @Binding var questionContent:String
+    var body: some View {
+        VStack{
+            
+            
+            
+            List{
+                
+                CategorySection(showPicker: $VM.showPicker, selectedPickerName: VM.selectedPickere)
+                
+                QuestionContentSection(questionContent: $questionContent)
+                    
+                QuestionSelectionSection()
+                    
+            }
+        }
     }
 }

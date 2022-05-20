@@ -10,7 +10,14 @@ import Combine
 import SwiftUI
 
 
-class AddQuestionViewModel:ObservableObject{
+class AddQuestionViewModel:ObservableObject,Identifiable,Equatable{
+    static func == (lhs: AddQuestionViewModel, rhs: AddQuestionViewModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    var id = UUID().uuidString
+    @Published var title:String = ""
+    @Published var showPicker = false
     /// Beckend ten gelecek
     @Published var category:[String] = ["Swift","TypeScript"] 
     @Published var selectedPickere:String = ""
